@@ -9,13 +9,11 @@ assignees: ''
 
 As a **role** I can **capability** so that **received benefit**.
 
-###Acceptance Criterias:
+**Acceptance Criteria**
 1. 
 2.
-3.
 
 
-###Tasks
+**Tasks**
 1. 
 2.
-3.
