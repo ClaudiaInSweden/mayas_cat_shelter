@@ -1,1 +1,1 @@
-web: gunicorn cat-shelter.wsgi
+web: gunicorn cat_shelter.wsgi
