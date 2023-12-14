@@ -1,7 +1,6 @@
-from django.shortcuts import render, get_object_or_404
-from django.views.generic.base import RedirectView
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic, View
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 from .models import Cats
 
 
@@ -11,9 +10,12 @@ def home(request):
 
 
 class Cats(View):
-    def get(self, request):
+    def cat_list(request):
         queryset = Cats.objects.filter(status=1)
-        cats = get_object_or_404(queryset, catname=catname)
+        cat_detail = get_object_or_404(queryset)
+
+        class Meta:
+            ordering = ["catname"]
 
         return render(
             request,
@@ -28,3 +30,8 @@ class Cats(View):
         )
 
 # Create your views here.
+
+
+
+def adoption(request):
+    return render(request, "adoption.html")
