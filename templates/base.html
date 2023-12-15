@@ -1,14 +1,10 @@
 {% load static %}
-{% url 'home' as home_url %}
-{% url 'cats' as cats_url %}
-{% url 'account_login' as login_url %}
-{% url 'account_signup' as signup_url %}
-{% url 'account_logout' as logout_url %}
 
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mayas Cat Shelter</title>
@@ -23,6 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
+
 </head>
 <body>
 
@@ -43,8 +40,11 @@
                   <a class="nav-link active" aria-current="page" href="{% url 'cats' %}">Our Cats</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="{% url 'adoption' %}">Adoption</a>
+                  <a class="nav-link active" aria-current="page" href="{% url 'adoption' %}">Adoption Rules</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'application' %}">Apply for Adoption</a>
+                  </li>
                 {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
@@ -65,5 +65,19 @@
         </div>
     </div>
 </nav>
+    <main class="flex-shrink-0 main-bg">
+
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
+    </main>
+        <!-- Footer -->
+        <footer class="footer mt-auto py-3 dark-bg">
+            <p class="m-0 text-center text-white">Mayas Cat Shelter</p>
+            <p class="m-0 text-center text-white">Follow us: <i class="fab fa-facebook-square ms-3"></i>
+                <i class="fab fa-twitter-square ms-3"></i>
+                <i class="fab fa-instagram-square ms-3"></i>
+                <i class="fab fa-youtube-square ms-3"></i></p>
+        </footer>
 </body>
 </html>

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Please complete the form to apply for adopting a cat</h2>
+
+{% if submitted %}
+Your application was sent successfully!
+{% else %}
+
+
+<form action="" method="POST">
+{% csrf_token %}
+
+
+{{ form.as_p }}
+<input type="submit" value="Submit" class="btn btn-secondary">
+
+</form>
+{% endif %}
+{% endblock %}
