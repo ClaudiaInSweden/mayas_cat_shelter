@@ -4,15 +4,15 @@
 <div class="container">
   <h2>Cats available for adoption</h2>
 <div class="row row-cols-1 row-cols-md-2 g-4">
-    {% for cat in cats %}
+  {% for cat in cats %}
   <div class="col">
     <div class="card">
-      <img src="{{ cats.image }}" class="card-img-top" alt="...">
+      <img src="" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">{{ cats.catname }}</h5>
-        <p class="card-text">{{ cats.born }}</p>
-        <p>{{ cats.gender }}</p>
-        <p>{{ cats.description }}</p>
+        <h5 class="card-title">{{ ourcats.catname }}</h5>
+        <p class="card-text">{{ ourcats.born }}</p>
+        <p>{{ ourcats.gender }}</p>
+        <p>{{ ourcats.description }}</p>
       </div>
     </div>
   </div>

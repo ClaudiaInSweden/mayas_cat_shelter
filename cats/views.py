@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from .models import Cats
-from .forms import ApplicationForm
+from django import forms
+from .models import Cats, Application
+from bootstrap_datepicker_plus.widgets import DateTimePickerInput
 
 
 
@@ -10,9 +11,10 @@ def home(request):
     return render(request, "index.html")
 
 
-class Cats(View):
-    def catlist(self, request):
+class Catsview(View):
+    def get(self, request, *args):
         queryset = Cats.objects.filter(status=1)
+        ourcats = get_object_or_404(queryset)
 
         return render(
             request,
@@ -28,21 +30,37 @@ class Cats(View):
 
 # Create your views here.
 
-def application(request):
-    submitted = False
-    if request.method == 'POST':
-        form = ApplicationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/application?submitted=True')
-    else:
-        form = ApplicationForm
-    if 'submitted' in request.GET:
-        submitted = True
+class ApplicationForm(forms.ModelForm):
 
-    return render(request, 'application.html', {'form': form, 'submitted': submitted})
+    class Meta:
+        model = Application
+        fields = '__all__'
+
+    def application(request):
+        form = Application()
+        return render(request, 'application.html', {'form': form})
 
 
 
-def adoption(request):
+    # def get_form(self):
+    #     form = get_form(Application)
+    #     form.fields['date_of_birth'].widget = DateTimePickerInput()
+
+    # def application(request):
+    #     submitted = False
+    #     if request.method == 'POST':
+    #         form = Application(request.POST)
+    #         if form.is_valid():
+    #             form.save()
+    #             return HttpResponseRedirect('/application?submitted=True')
+    #     else:
+    #         form = Application
+    #     if 'submitted' in request.GET:
+    #         submitted = True
+
+        # return render(request, 'application.html', {'form': form, 'submitted': submitted})
+
+
+
+def Adoption(request):
     return render(request, 'adoption.html')

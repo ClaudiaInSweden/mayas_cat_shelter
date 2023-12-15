@@ -20,20 +20,24 @@ class Cats(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     selected = models.BooleanField(default=False)
 
+
     class Meta:
         ordering = ['catname']
 
+    def __str__(self):
+        return self
 
-class ApplicationForm(models.Model):
+
+class Application(models.Model):
     first_name = models.CharField(max_length=100, null=False, blank=False)
     last_name = models.CharField(max_length=100, null=False, blank=False)
     email = models.EmailField()
     phone = models.IntegerField()
-    date_of_birth = models.DateTimeField()
-    about_you = models.TextField(default='Please tell us something about you!')
+    date_of_birth = models.DateField(null=True)
+    about_you = models.TextField()
 
     def __str__(self):
-        return self.first_name
+        return self
 
 
 
