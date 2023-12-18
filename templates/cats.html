@@ -10,18 +10,18 @@
             <div class="row">
                 {% for cat in cats %}
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <!-- <img class="card-img-top" src="#" alt="Card image cap"> -->
                     <div class="card-body">
-                        <h5 class="card-title">{{ cats.catname }}</h5>
-                        <p class="card-text">{{ cats.description }}</p>
+                        <h5 class="card-title">{{ cat.catname }}</h5>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">{{ cats.born }}</li>
-                        <li class="list-group-item">{{ cats.gender }}</li>
+                        <li class="list-group-item">Born: {{ cat.born }}</li>
+                        <li class="list-group-item">Gender: {{ cat.gender }}</li>
                     </ul>
+                    <p class="card-text">{{ cat.description }}</p>
                     <div class="card-body">
-                        <a href="#" class="card-link">Edit</a>
-                        <a href="#" class="card-link">Delete</a>
+                        <a href="{% url 'update-cat' cat.id %}" class="card-link">Edit</a>
+                        <a href="{% url 'delete-cat' cat.id %}" class="card-link">Delete</a>
                         <a href="#" class="card-link">Adopt</a>
                     </div>
                 </div>

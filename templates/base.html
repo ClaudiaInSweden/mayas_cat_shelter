@@ -30,16 +30,25 @@
           <a class="nav-link" href="{% url 'cats' %}">Cats</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Adoption</a>
+          <a class="nav-link" href="{% url 'create-cat' %}">Cat Administration</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'application' %}">Adoption</a>
         </li>
       </ul>
     </div>
   </nav>
+<main>
+  <div class="container">
 
   {% block content %}
 
 
   {% endblock content %}
+
+  
+  </div>
+</main>
 
 <!-- Footer -->
 <footer>
