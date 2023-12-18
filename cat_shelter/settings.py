@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'cloudinary_storage',
     'django.contrib.staticfiles',
-    'jquery',
     'bootstrap_datepicker_plus',
     'cloudinary',
     'django_summernote',
