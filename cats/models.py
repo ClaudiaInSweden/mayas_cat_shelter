@@ -27,7 +27,7 @@ class Application(models.Model):
     phone = models.IntegerField(null=False, blank=False)
     date_of_birth = models.DateField(null=False, blank=False)
     about_you = models.TextField(null=False, blank=False)
+    cat_id = models.ForeignKey(Cats, on_delete=models.DO_NOTHING, null=True, blank=True)
 
     def __str__(self):
-        return self.last_name
-
+        return f'{self.first_name} {self.last_name}'
