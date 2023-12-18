@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import Cats
+
 from django_summernote.admin import SummernoteModelAdmin
 
+from .models import Cats, Application
 
-
-# Register your models here.
+admin.site.register(Cats)
+admin.site.register(Application)
