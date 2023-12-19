@@ -14,7 +14,7 @@ def createCat(request):
     form = CatsForm()
 
     if request.method == 'POST':
-        form = CatsForm(request.POST)
+        form = CatsForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('cats')
@@ -28,7 +28,7 @@ def updateCat(request, id):
     form = CatsForm(instance=cat)
 
     if request.method == 'POST':
-        form = CatsForm(request.POST, instance=cat)
+        form = CatsForm(request.POST, request.FILES, instance=cat)
         if form.is_valid():
             form.save()
             return redirect('cats')

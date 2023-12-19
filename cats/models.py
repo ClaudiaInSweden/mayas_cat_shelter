@@ -11,7 +11,7 @@ class Cats(models.Model):
     born = models.DateField(null=True, blank=True)
     gender = models.IntegerField(choices=GENDER, default=0)
     description = models.TextField(null=True, blank=True)
-    featured_image = models.ImageField(null=True, blank=True)
+    featured_image = models.ImageField(null=True, blank=True, default='default-cat.png')
     # featured_image = CloudinaryField('image', default='placeholder')
     # author = User
     status = models.IntegerField(choices=STATUS, default=0)

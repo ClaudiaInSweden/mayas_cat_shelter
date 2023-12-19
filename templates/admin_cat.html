@@ -5,7 +5,7 @@
 {% load crispy_forms_tags %}
 <h1>This is the form to add a cat</h1>
 
-<form action="" method="POST">
+<form action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
 
     {{ form.as_p }}

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
 
@@ -8,7 +9,7 @@
     {% for cat in cats %}
     <div class="col">
       <div class="card">
-        <img src="{{ 'cat.image_URL' }}" class="card-img-top" alt="...">
+        <img src="{{ cat.imageURL }}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ cat.catname }}</h5>
           <p class="card-text">Born: {{ cat.born }}</p>
