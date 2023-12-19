@@ -4,31 +4,26 @@
 
 <h1>This is the cats page</h1>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 mt-3 left">
-            <div class="row">
-                {% for cat in cats %}
-                <div class="card" style="width: 18rem;">
-                    <!-- <img class="card-img-top" src="#" alt="Card image cap"> -->
-                    <div class="card-body">
-                        <h5 class="card-title">{{ cat.catname }}</h5>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Born: {{ cat.born }}</li>
-                        <li class="list-group-item">Gender: {{ cat.gender }}</li>
-                    </ul>
-                    <p class="card-text">{{ cat.description }}</p>
-                    <div class="card-body">
-                        <a href="{% url 'update-cat' cat.id %}" class="card-link">Edit</a>
-                        <a href="{% url 'delete-cat' cat.id %}" class="card-link">Delete</a>
-                        <a href="#" class="card-link">Adopt</a>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for cat in cats %}
+    <div class="col">
+      <div class="card">
+        <img src="{{ 'cat.image_URL' }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ cat.catname }}</h5>
+          <p class="card-text">Born: {{ cat.born }}</p>
+          <p class="card-text">Gender: {{ cat.gender }}</p>
+          <p class="card-text">Description:</p>
+          <p class="card-text">{{ cat.description }}</p>
+          <div class="card-body">
+            <a href="{% url 'update-cat' cat.id %}" class="card-link">Edit</a>
+            <a href="{% url 'delete-cat' cat.id %}" class="card-link">Delete</a>
+            <a href="#" class="card-link">Adopt</a>
         </div>
+        </div>
+      </div>
     </div>
-</div>
+    {% endfor %}
+    
 
 {% endblock %}
