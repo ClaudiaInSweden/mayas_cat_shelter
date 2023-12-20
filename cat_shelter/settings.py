@@ -24,18 +24,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 
-# Cloudinary imports
-
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
+API_KEY = os.environ.get('API_KEY')
+API_SECRET = os.environ.get('API_SECRET')
+
+
+
+CLOUDINARY_CONFIG = {
+    'CLOUD_NAME': 'dhciyvwx5',
+    'API_KEY': '195643831417223',
+    'API_SECRET': '_iT0jYmNQKbPa51AvtWSmSXxqmc',
+}
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -178,8 +182,6 @@ MEDIA_URL = '/projects/'
 
 CLOUDINARY_CONFIG = {
     'CLOUD_NAME': 'dhciyvwx5',
-    'API_KEY': '195643831417223',
-    'API_SECRET': '_iT0jYmNQKbPa51AvtWSmSXxqmc',
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
