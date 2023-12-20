@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django import forms
 from django.http import HttpResponse
+from cloudinary.forms import cl_init_js_callbacks
 from .models import Cats, Application
 from .forms import CatsForm
 
 
 def cats(request):
+    # cats = Cats.objects.filter(status=1)
     cats = Cats.objects.filter(status=1)
     context = {'cats': cats}
     return render(request, 'cats.html', context)
