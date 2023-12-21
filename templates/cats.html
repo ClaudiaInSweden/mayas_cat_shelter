@@ -1,39 +1,12 @@
 {% extends 'base.html' %}
 {% load cloudinary %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
 {% block content %}
 
-<div class="container">
-<h1>Cats available for adoption</h1>
-</div>
+<h1>Our Cats</h1>
 
-<div class="container"></div>
-    <div class="card-group">
-      {% for cat in cats %}
-      <div class="row row-cols-3">
-        <div class="col">
-          <div class="card" style="width: 25rem;">
-
-            <img src="{{ cat.image.url }}" class="card-img-top" alt="...">
-            <div class="card-body" max-height="300px">
-              <h5 class="card-title">{{ cat.catname }}</h5>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Born: {{ cat.born }}</li>
-              <li class="list-group-item">Gender: {{ cat.gender }}</li>
-              <li class="list-group-item"><h6 class="card-title">Description:</h6></li>
-              <li class="list-group-item card-text">{{ cat.description }}</li>
-            </ul>
-
-            <div class="card-body">
-              <a href="{% url 'update-cat' cat.id %}" class="card-link">Edit</a>
-              <a href="{% url 'delete-cat' cat.id %}" class="card-link">Delete</a>
-              <a href="#" class="card-link">Adopt</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
 
 {% endblock %}

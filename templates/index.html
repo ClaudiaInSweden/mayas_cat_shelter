@@ -1,7 +1,46 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 
 
 {% block content %}
-<h1>This is index.html</h1>
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" style="background-image: url('https://res.cloudinary.com/dhciyvwx5/image/upload/v1703167553/cover_cat1_q9g4ex.jpg')">
+        <div class="carousel-caption">
+          <h5>Our Cats</h5>
+          <p>Check out our cats that are looking for a forever home</p>
+        </div>
+      </div>
+      <div class="carousel-item" style="background-image: url('https://res.cloudinary.com/dhciyvwx5/image/upload/v1703167554/cover_cat2_gt1rba.jpg')">
+        <div class="carousel-caption">
+          <h5>Want to adopt?</h5>
+          <p>Check out our adoption rules and register</p>
+        </div>
+      </div>
+     
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 
-{% endblock %}
+  <section class="py-5">
+    <div class="container">
+      <h1 class="fw-light">Welcome to Mayas Cat Shelter!</h1>
+      <p class="lead">The background images for the slider are set directly in the HTML using inline CSS. The images
+        in this snippet are from <a href="https://unsplash.com">Unsplash</a>!</p>
+    </div>
+  </section>
+  {% endblock %}
