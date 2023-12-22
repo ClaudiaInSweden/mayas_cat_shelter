@@ -36,13 +36,11 @@ API_SECRET = os.environ.get('API_SECRET')
 
 CLOUDINARY_CONFIG = {
     'CLOUD_NAME': 'dhciyvwx5',
-    'API_KEY': '195643831417223',
-    'API_SECRET': '_iT0jYmNQKbPa51AvtWSmSXxqmc',
 }
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['mayas-cat-shelter-9ef5d0b15271.herokuapp.com', '8000-claudiainsw-mayascatshe-b6lasv7lilt.ws-eu106.gitpod.io', '8000-claudiainsw-mayascatshe-b6lasv7lilt.ws-eu107.gitpod.io']
 
@@ -63,8 +61,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'django_summernote',
-    'crispy_forms',
     'bootstrap5',
+    'crispy_forms',
+    'crispy_bootstrap5'
     'cats',
 ]
 
@@ -90,7 +89,8 @@ MESSAGE_TAGS = {
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 
 
 
