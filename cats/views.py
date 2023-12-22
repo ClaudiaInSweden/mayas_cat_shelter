@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django import forms
 from django.http import HttpResponse
 from cloudinary.forms import cl_init_js_callbacks
-from .models import Cats, Application
-from .forms import CatsForm
+from .models import Cats, Adoption
+from .forms import CatsForm, AdoptionForm
 
 
 def cats(request):
@@ -49,10 +49,10 @@ def deleteCat(request, id):
     return render(request, 'messages.html', {'item': cat})
 
 
-def application(request):
-    application = Application.objects.all()
-    context = {'application': application}
-    return render(request, 'application.html', context)
+def adoption(request):
+    adoption = Adoption.objects.all()
+    context = {'adoption': adoption}
+    return render(request, 'adoption.html', context)
 
 
 def home(request):

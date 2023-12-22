@@ -40,7 +40,7 @@ CLOUDINARY_CONFIG = {
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['mayas-cat-shelter-9ef5d0b15271.herokuapp.com', '8000-claudiainsw-mayascatshe-b6lasv7lilt.ws-eu106.gitpod.io', '8000-claudiainsw-mayascatshe-b6lasv7lilt.ws-eu107.gitpod.io']
 

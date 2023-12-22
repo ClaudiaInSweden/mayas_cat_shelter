@@ -26,9 +26,51 @@
     {% endblock extra_head %}
   </head>
   <body>
-    <div class="container">
+<!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand logo" href="{% url 'home' %}"><img class="logotype" src="{% static 'images/favicon.ico' %}" alt="Logotype">Mayas Cat Shelter</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'cats' %}">Our cats</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'create-cat' %}">Administration</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'adoption' %}">Adoption</a>
+            </li>
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
+                  href="{% url 'account_logout' %}">Logout</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+                  href="{% url 'account_signup' %}">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
+                  href="{% url 'account_login' %}">Login</a>
+              </li>
+              {% endif %}
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+<!-- Login Form -->
+    <div class="container mt-5">
       <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
+        <div class="col-md-8 mt-5 offset-md-2">
     {% block body %}
 
     {% if messages %}

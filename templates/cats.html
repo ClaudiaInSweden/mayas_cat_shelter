@@ -7,19 +7,23 @@
 
 {% block content %}
 <main>
-<div class="container">
+<div class="container mt-5">
   <h2>Cats available for adoption</h2>
 </div>
-<div class="container-bg">
+<div class="container mt-3">
   <div class="card-group">
     <div class="row">
       {% for cat in cats %}
-      <div class="col-sm-12 col-md-4 col-lg-4">
+      <div class="col-sm-12 col-md-6 col-lg-4">
         <div class="col">
           <div class="card">
             <div class="card-body">
               <h3 class="card-title">{{ cat.catname | upper }}</h3>
+              {% if "placeholder" in cat.image.url %}
+              <img src="https://res.cloudinary.com/dhciyvwx5/image/upload/v1703268464/default_di3p4z.webp" class="card-img-top" alt="...">
+              {% else %}
               <img src="{{ cat.image.url }}" class="card-img-top" alt="...">
+              {% endif %}
               <div class="card-text">
                 <p>Born: {{ cat.born }}</p>
                 <p>Gender: {{ cat.gender }}</p>
@@ -27,6 +31,12 @@
                   <h6 class="card-title">Background & Temperament:</h6>
                 </p>
                 <p>{{ cat.description }}</p>
+              </div>
+              <div class="card-body">
+                <a href="{% url 'adoption' %}" class="btn btn-secondary">Adopt</a>
+                <a href="{% url 'update-cat' %}" class="btn btn-warning">Edit</a>
+                <a href="{% url 'delete-cat' %}" class="btn btn-danger">Delete</a>
+
               </div>
             </div>
           </div>
