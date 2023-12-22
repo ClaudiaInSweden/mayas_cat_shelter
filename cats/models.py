@@ -12,7 +12,7 @@ class Cats(models.Model):
     born = models.DateField(null=True, blank=True)
     gender = models.IntegerField(choices=GENDER, default=0)
     description = models.TextField(null=True, blank=True)
-    image = CloudinaryField('image', default='placeholder')
+    image = CloudinaryField('image', default='https://res.cloudinary.com/dhciyvwx5/image/upload/v1703206863/default_aivdfc.png')
     # author = User
     status = models.IntegerField(choices=STATUS, default=0)
 
