@@ -1,4 +1,8 @@
 {% load i18n %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,6 +13,9 @@
     {% endblock extra_head %}
   </head>
   <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
     {% block body %}
 
     {% if messages %}
@@ -20,10 +27,12 @@
         {% endfor %}
       </ul>
     </div>
+      </div>
+    </div>
     {% endif %}
 
-    <div>
-      <strong>{% trans "Menu:" %}</strong>
+    <!-- <div class="row">
+       <strong>{% trans "Menu:" %}</strong>
       <ul>
         {% if user.is_authenticated %}
         <li><a href="{% url 'account_email' %}">{% trans "Change Email" %}</a></li>
@@ -33,11 +42,14 @@
         <li><a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li>
         {% endif %}
       </ul>
-    </div>
+    
+    </div> -->
     {% block content %}
     {% endblock content %}
     {% endblock body %}
     {% block extra_body %}
     {% endblock extra_body %}
+  
+</div>
   </body>
 </html>
