@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
+from django.views.decorators.csrf import csrf_protect 
 from django import forms
 from django.http import HttpResponse
 from cloudinary.forms import cl_init_js_callbacks
 from .models import Cats, Adoption
-from .forms import CatsForm, AdoptionForm
+from .forms import CatsForm, AdoptionForm, UserForm
 
 
 def cats(request):
@@ -12,7 +13,7 @@ def cats(request):
     context = {'cats': cats}
     return render(request, 'cats.html', context)
 
-
+@csrf_protect 
 def createCat(request):
     form = CatsForm()
 
@@ -25,7 +26,7 @@ def createCat(request):
     context = {'form': form}
     return render(request, 'admin_cat.html', context)
 
-
+@csrf_protect 
 def updateCat(request, id):
     cat = Cats.objects.get(id=id)
     form = CatsForm(instance=cat)
@@ -39,7 +40,7 @@ def updateCat(request, id):
     context = {'form': form}
     return render(request, 'admin_cat.html', context)
 
-
+@csrf_protect 
 def deleteCat(request, id):
     cat = Cats.objects.get(id=id)
 
@@ -48,11 +49,18 @@ def deleteCat(request, id):
         return redirect('cats')
     return render(request, 'messages.html', {'item': cat})
 
-
+@csrf_protect 
 def adoption(request):
-    adoption = Adoption.objects.all()
+    if request.method == 'POST':
+        form = AdoptionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('cats')
+        else:
+            form = AdoptionForm()
     context = {'adoption': adoption}
     return render(request, 'adoption.html', context)
+
 
 
 def home(request):

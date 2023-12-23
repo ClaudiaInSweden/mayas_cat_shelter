@@ -12,6 +12,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="referrer" content="no-referrer">
 <meta name="Description" content="Enter your description here"/>
 <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
 <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-large.png' %}">
@@ -42,20 +43,9 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'cats' %}">Our cats</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="{% url 'cats' %}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Cats Menu
-          </a>
-          <!-- Here's the magic. Add the .animate and .slideIn classes to your .dropdown-menu and you're all set! -->
-          <div class="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{% url 'create-cat' %}">Add a cat</a>
-            
-        </li>
-
-        
-        <li class="nav-item">
+       <li class="nav-item">
           <a class="nav-link" href="{% url 'create-cat' %}">Administration</a>
-        </li>
+        </li> 
         <li class="nav-item">
           <a class="nav-link" href="{% url 'adoption' %}">Adoption</a>
         </li>

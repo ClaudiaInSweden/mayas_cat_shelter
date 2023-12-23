@@ -34,8 +34,8 @@
               </div>
               <div class="card-body">
                 <a href="{% url 'adoption' %}" class="btn btn-secondary">Adopt</a>
-                <a href="{% url 'update-cat' %}" class="btn btn-warning">Edit</a>
-                <a href="{% url 'delete-cat' %}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'update-cat' cat.id %}" class="btn btn-warning">Edit</a>
+                <a href="{% url 'delete-cat' cat.id %}" class="btn btn-danger">Delete</a>
 
               </div>
             </div>

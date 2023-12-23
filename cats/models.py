@@ -9,15 +9,15 @@ class Cats(models.Model):
 
     STATUS = ((0, 'Draft'), (1, 'Published'))
     GENDER = [
-        ('m', 'male'),
-        ('f', 'female')
+        ('male', 'male'),
+        ('female', 'female')
     ]
 
     id = models.AutoField(primary_key=True)
     catname = models.CharField(max_length=100)
     born = models.DateField(null=True, blank=True)
     gender = models.CharField(choices=GENDER, default='m')
-    description = models.TextField(null=True, blank=True, default='Will soon be updated.')
+    description = models.TextField(null=True, blank=True, default='placeholder')
     image = CloudinaryField('image', default='placeholder')
     author = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=True, blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
