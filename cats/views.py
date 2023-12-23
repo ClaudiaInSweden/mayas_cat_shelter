@@ -22,6 +22,8 @@ def createCat(request):
         if form.is_valid():
             form.save()
             return redirect('cats')
+        else:
+            form = createCat()
 
     context = {'form': form}
     return render(request, 'admin_cat.html', context)
@@ -36,6 +38,8 @@ def updateCat(request, id):
         if form.is_valid():
             form.save()
             return redirect('cats')
+        else:
+            form = updateCat()
 
     context = {'form': form}
     return render(request, 'admin_cat.html', context)
@@ -50,7 +54,23 @@ def deleteCat(request, id):
     return render(request, 'messages.html', {'item': cat})
 
 @csrf_protect 
+def reg_adoption(request):
+    form = UserForm
+
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('cats')
+        else:
+            form = UserForm()
+    context = {'form': form}
+    return render(request, 'adoption.html', context)
+
+
 def adoption(request):
+    form = AdoptionForm
+
     if request.method == 'POST':
         form = AdoptionForm(request.POST)
         if form.is_valid():
@@ -58,7 +78,7 @@ def adoption(request):
             return redirect('cats')
         else:
             form = AdoptionForm()
-    context = {'adoption': adoption}
+    context = {'form': form}
     return render(request, 'adoption.html', context)
 
 

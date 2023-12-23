@@ -17,7 +17,7 @@ class Cats(models.Model):
     catname = models.CharField(max_length=100)
     born = models.DateField(null=True, blank=True)
     gender = models.CharField(choices=GENDER, default='m')
-    description = models.TextField(null=True, blank=True, default='placeholder')
+    description = models.TextField(null=True, blank=True)
     image = CloudinaryField('image', default='placeholder')
     author = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=True, blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
@@ -35,9 +35,9 @@ class Adoption(models.Model):
     first_name = models.CharField(max_length=100, null=False, blank=False)
     last_name = models.CharField(max_length=100, null=False, blank=False)
     email = models.EmailField(null=False, blank=False)
-    phone = PhoneField(blank=True)
+    phone = PhoneField(null=True, blank=True)
     date_of_birth = models.DateField(null=False, blank=False)
-    about_you = models.TextField(null=False, blank=False, help_text='Tell us about you')
+    about_you = models.TextField(null=False, blank=False)
     cat_id = models.ForeignKey(Cats, on_delete=models.DO_NOTHING, null=True, blank=True)
 
     def __str__(self):

@@ -38,6 +38,10 @@ CLOUDINARY_CONFIG = {
     'CLOUD_NAME': 'dhciyvwx5',
 }
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-claudiainsw-mayascatshe-b6lasv7lilt.ws-eu107.gitpod.io',
+    'https://mayas-cat-shelter-9ef5d0b15271.herokuapp.com/',
+]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -64,6 +68,7 @@ INSTALLED_APPS = [
     'bootstrap5',
     'crispy_forms',
     'crispy_bootstrap5',
+    'phone_field',
     'cats',
 ]
 
