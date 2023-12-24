@@ -1,26 +1,34 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.views.decorators.csrf import csrf_protect 
 from django import forms
-from django.http import HttpResponse
+from django.contrib import messages
+from django.http import HttpResponse, HttpResponseRedirect
 from cloudinary.forms import cl_init_js_callbacks
 from .models import Cats, Adoption
-from .forms import CatsForm, AdoptionForm, UserForm
+from .forms import CatsForm, AdoptionForm
 
 
 def cats(request):
-    # cats = Cats.objects.filter(status=1)
     cats = Cats.objects.filter(status=1)
     context = {'cats': cats}
     return render(request, 'cats.html', context)
 
-@csrf_protect 
+
+def selected(request):
+    selected_cats = Cats.objects.filter(selected=True)
+    return render(request, Cats.catname)
+
+
+
 def createCat(request):
     form = CatsForm()
+    form_class = CatsForm
 
     if request.method == 'POST':
         form = CatsForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            messages.success(request, 'The cat has been added to the list of cats!')
             return redirect('cats')
         else:
             form = createCat()
@@ -28,7 +36,7 @@ def createCat(request):
     context = {'form': form}
     return render(request, 'admin_cat.html', context)
 
-@csrf_protect 
+
 def updateCat(request, id):
     cat = Cats.objects.get(id=id)
     form = CatsForm(instance=cat)
@@ -37,6 +45,7 @@ def updateCat(request, id):
         form = CatsForm(request.POST, request.FILES, instance=cat)
         if form.is_valid():
             form.save()
+            messages.success(request, 'The cat has been updated successfully!')
             return redirect('cats')
         else:
             form = updateCat()
@@ -44,41 +53,36 @@ def updateCat(request, id):
     context = {'form': form}
     return render(request, 'admin_cat.html', context)
 
-@csrf_protect 
+
 def deleteCat(request, id):
     cat = Cats.objects.get(id=id)
 
     if request.method == 'POST':
         cat.delete()
+        messages.success(request, 'The cat has been deleted!')
         return redirect('cats')
-    return render(request, 'messages.html', {'item': cat})
-
-@csrf_protect 
-def reg_adoption(request):
-    form = UserForm
-
-    if request.method == 'POST':
-        form = UserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('cats')
-        else:
-            form = UserForm()
-    context = {'form': form}
-    return render(request, 'adoption.html', context)
+    return render(request, 'cats', {'item': cat})
 
 
 def adoption(request):
-    form = AdoptionForm
 
     if request.method == 'POST':
-        form = AdoptionForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('cats')
+        adoption_form = AdoptionForm(request.POST)
+        cats_form = CatsForm(request.POST)
+        if adoption_form.is_valid():
+            adoption_form.save()
+            messages.success(request, 'Your adoption request has been submitted successfully!')
+            return redirect('home')
         else:
-            form = AdoptionForm()
-    context = {'form': form}
+            context = {
+                'adoption_form': adoption_form,
+                'cats_form': cats_form,
+            }
+    else:
+        context = {
+            'adoption_form': AdoptionForm(),
+            'cats_form': CatsForm(),
+        }
     return render(request, 'adoption.html', context)
 
 

@@ -7,7 +7,11 @@ from phone_field import PhoneField
 
 class Cats(models.Model):
 
-    STATUS = ((0, 'Draft'), (1, 'Published'))
+    STATUS = [
+        ('draft', 'draft'),
+        ('published', 'published')
+    ]
+  
     GENDER = [
         ('male', 'male'),
         ('female', 'female')
@@ -21,13 +25,14 @@ class Cats(models.Model):
     image = CloudinaryField('image', default='placeholder')
     author = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=True, blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
+    selected = models.BooleanField(null=True, blank=True, default=False)
 
     class Meta:
         ordering = ['catname']
 
     def __str__(self):
-        return self.catname
-
+        return f'{self.id} - {self.catname}, - Born: {self.born}, - Gender: {self.gender}, - Status: {self.status}'
+    
 
 class Adoption(models.Model):
 
@@ -38,7 +43,6 @@ class Adoption(models.Model):
     phone = PhoneField(null=True, blank=True)
     date_of_birth = models.DateField(null=False, blank=False)
     about_you = models.TextField(null=False, blank=False)
-    cat_id = models.ForeignKey(Cats, on_delete=models.DO_NOTHING, null=True, blank=True)
-
+   
     def __str__(self):
-        return f'{self.first_name} {self.last_name}, cat name and ID: {Cats.catname}, {self.cat_id} '
+        return f'{self.first_name} {self.last_name}, cat name and ID: {Cats.catname}, {Cats.id} '

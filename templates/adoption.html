@@ -15,7 +15,15 @@
         
         <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ adoption_form.as_p }}
+           
+            <p>I want to adopt:</p>
+            {% if cats_form.selected %}
+                {{ cats_form.id }}
+                {{ cats_form.catname }}
+
+            {% endif %}
+
             <div buttons>
                 <span><input type="submit" value="Submit"></span>
                 <span><input type="reset" value="Reset"></span>

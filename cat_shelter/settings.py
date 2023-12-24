@@ -15,7 +15,9 @@ from pathlib import Path
 
 import os
 import dj_database_url
-from django.contrib.messages import constants as messages
+from django.contrib.messages import constants as message_constants
+from django.contrib import messages
+
 if os.path.isfile('env.py'):
     import env
 
@@ -44,7 +46,7 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['mayas-cat-shelter-9ef5d0b15271.herokuapp.com', '8000-claudiainsw-mayascatshe-b6lasv7lilt.ws-eu106.gitpod.io', '8000-claudiainsw-mayascatshe-b6lasv7lilt.ws-eu107.gitpod.io']
 
@@ -90,6 +92,12 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+   "django.core.context_processors.request",
+   "django.core.context_processors.media",
+   "django.contrib.messages.context_processors.messages"
+)
 
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
