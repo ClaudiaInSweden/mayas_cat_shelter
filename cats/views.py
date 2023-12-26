@@ -9,15 +9,9 @@ from .forms import CatsForm, AdoptionForm
 
 
 def cats(request):
-    cats = Cats.objects.filter(status=1)
+    cats = Cats.objects.filter(status='Published')
     context = {'cats': cats}
     return render(request, 'cats.html', context)
-
-
-def selected(request):
-    selected_cats = Cats.objects.filter(selected=True)
-    return render(request, Cats.catname)
-
 
 
 def createCat(request):
@@ -37,8 +31,8 @@ def createCat(request):
     return render(request, 'admin_cat.html', context)
 
 
-def updateCat(request, id):
-    cat = Cats.objects.get(id=id)
+def updateCat(request, pk):
+    cat = Cats.objects.get(id=pk)
     form = CatsForm(instance=cat)
 
     if request.method == 'POST':
@@ -54,38 +48,43 @@ def updateCat(request, id):
     return render(request, 'admin_cat.html', context)
 
 
-def deleteCat(request, id):
-    cat = Cats.objects.get(id=id)
-
+def deleteCat(request, pk):
+    cat = Cats.objects.get(id=pk)
     if request.method == 'POST':
         cat.delete()
-        messages.success(request, 'The cat has been deleted!')
         return redirect('cats')
-    return render(request, 'cats', {'item': cat})
+    context = {'cat': cat}
+    return render(request, 'delete.html', context)
 
 
 def adoption(request):
+    form = AdoptionForm
 
     if request.method == 'POST':
-        adoption_form = AdoptionForm(request.POST)
-        cats_form = CatsForm(request.POST)
-        if adoption_form.is_valid():
-            adoption_form.save()
-            messages.success(request, 'Your adoption request has been submitted successfully!')
+        form = AdoptionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.SUCCESS(request, 'Your adoption request has been submitted successfully!')
             return redirect('home')
         else:
-            context = {
-                'adoption_form': adoption_form,
-                'cats_form': cats_form,
-            }
-    else:
-        context = {
-            'adoption_form': AdoptionForm(),
-            'cats_form': CatsForm(),
-        }
-    return render(request, 'adoption.html', context)
+            form = AdoptionForm()
 
+    context = {'form': form}
+    return render(request, 'adoption.html', context)
 
 
 def home(request):
     return render(request, 'index.html')
+
+
+def rules(request):
+    return render(request, 'adoption_rules.html')
+
+
+def administration(request):
+    catlist = Cats.objects.all()
+    context = {'catlist': catlist}
+    return render(request, 'administration.html', context)
+
+
+

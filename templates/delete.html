@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main>
+<div class="container mt-5">
+    <div class="row mt-5">
+<div col-md-8 offset-md-2>
+
+    <form action="{% url 'delete-cat' cat.id %}" method="POST">
+        {% csrf_token %}
+        <p>Are you sure you want to delete {{ cat.name }}?</p>
+        <p></p>
+        <a href="{% url 'cats' %}" class="btn btn-secondary">Cancel</a>
+        <input type="submit" class="btn btn-secondary" value="Confirm"></input>
+
+    </form>
+</div>
+
+</div>
+</div>
+</main>
+{% endblock %}

@@ -43,22 +43,23 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'cats' %}">Our cats</a>
         </li>
-       <li class="nav-item">
-          <a class="nav-link" href="{% url 'create-cat' %}">Administration</a>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'rules' %}">Adoption Rules</a>
+        </li>
+        {% if user.is_staff %}
+          <li class="nav-item">
+          <a class="nav-link" href="{% url 'administration' %}">Administration</a>
         </li> 
+        {% endif %}
           {% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
-              href="{% url 'account_logout' %}">Logout</a>
+              href="{% url 'account_logout' %}">Staff Logout</a>
           </li>
           {% else %}
           <li class="nav-item">
-            <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
-              href="{% url 'account_signup' %}">Register</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
-              href="{% url 'account_login' %}">Login</a>
+              href="{% url 'account_login' %}">Staff Login</a>
           </li>
           {% endif %}
         
@@ -66,20 +67,20 @@
     </div>
   </div>
 </nav>
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      {% if messages %}
-      {% for message in messages %}
-      <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
-        <strong>{{ message | safe }}</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+{% if messages %}
+    <div class="container">
+      <div class="row">
+          <div class="col-md-8 offset-md-2">
+              {% for message in messages %}
+              <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                  {{ message | safe }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              {% endfor %}
+          </div>
       </div>
-      {% endfor %}
-      {% endif %}
-    </div>
   </div>
-</div>
+  {% endif %}
 
 
 {% block content %}

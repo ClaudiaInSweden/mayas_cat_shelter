@@ -9,6 +9,7 @@
 <main>
 <div class="container mt-5">
   <h2>Cats available for adoption</h2>
+  <p></p>
 </div>
 <div class="container mt-3">
   <div class="card-group">
@@ -18,7 +19,7 @@
         <div class="col">
           <div class="card">
             <div class="card-body">
-              <h3 class="card-title" name="cat_name">{{ cat.catname | upper }}</h3>
+              <h3 class="card-title cat_name" name="cat_name">{{ cat.name | upper }}</h3>
               {% if "placeholder" in cat.image.url %}
               <img src="https://res.cloudinary.com/dhciyvwx5/image/upload/v1703268464/default_di3p4z.webp" class="card-img-top" alt="...">
               {% else %}
@@ -31,14 +32,11 @@
                   <h6 class="card-title">Background & Temperament:</h6>
                 </p>
                 <p>{{ cat.description }}</p>
+                <p>{{ cat.adopt_status }}</p>
               </div>
               <div class="card-body">
-                <span><input type="checkbox" id="selected" class="selected" name="selected" value="{{ Cats.catname }}" label="Select"></span>
-                <span><a href="{% url 'adoption' %}" class="btn btn-secondary">Adopt</a></span>
-                {% if user.is_authenticated %}
-                <a href="{% url 'update-cat' cat.id %}" class="btn btn-warning">Edit</a>
-                <a href="{% url 'delete-cat' cat.id %}" class="btn btn-danger">Delete</a>
-                {% endif %}
+                <a class="btn btn-secondary" href="{% url 'adoption' %}">Adopt</a>
+
 
 
 
