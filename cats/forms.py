@@ -37,10 +37,3 @@ class AdoptionForm(ModelForm):
             'about_you': forms.Textarea(attrs={'class': 'form-control'}),
             'catname': forms.Select(attrs={'class': 'form-control'}),
         }
-
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
-    #     cats = Cats.objects.all()
-    #     catname = [(c.id, c.name) for c in cats]
-
-

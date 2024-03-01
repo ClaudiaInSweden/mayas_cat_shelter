@@ -12,25 +12,34 @@
         <p>Our ambition is to answer your request within 2 weeks.</p>
     </div>
     <div class="container">
-
-            <div class="row">
-                <div class="col-6">
-                    <div class="form-group">
+        <div class="row">
+            <div class="col-12 col-lg-8 form-box">
+                <div class="form-group">
                     <form action="" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
-                        <fieldset>
-                            <legend>
+                        <fieldset class="custom-border">
+                            <legend class="custom-border">
                                 <h5>Your Details:</h5>
                             </legend>
                             {{ form|crispy }}
-                        </fieldset>
-                        <fieldset>
-                            <legend>
-                                <h5>Cat name:</h5>
-                            </legend>
-                            {{ cat.name }}
-                        </fieldset>
-                    </div>
+                        </fieldset>                      
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 form-box">
+                <fieldset class="custom-border">
+                    <legend class="custom-border">
+                        <h5>Cat to adopt:</h5>
+                    </legend>
+                    <p class="ml-3">
+                        Name: {{ cat.name }}
+                    </p>
+                    <p>
+                        Born: {{ cat.born }}
+                    </p>
+                    <p> 
+                        Gender: {{ cat.gender }}
+                    </p>
+                </fieldset>
             </div>
             <div buttons>
                 <span><input type="submit" value="Submit"></span>
