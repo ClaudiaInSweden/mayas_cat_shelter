@@ -18,8 +18,19 @@
                     <div class="form-group">
                     <form action="" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
-                        {{ form.as_p }}
-                </div>
+                        <fieldset>
+                            <legend>
+                                <h5>Your Details:</h5>
+                            </legend>
+                            {{ form|crispy }}
+                        </fieldset>
+                        <fieldset>
+                            <legend>
+                                <h5>Cat name:</h5>
+                            </legend>
+                            {{ cat.name }}
+                        </fieldset>
+                    </div>
             </div>
             <div buttons>
                 <span><input type="submit" value="Submit"></span>

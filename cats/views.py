@@ -57,19 +57,23 @@ def deleteCat(request, pk):
     return render(request, 'delete.html', context)
 
 
-def adoption(request):
+def adoption(request, pk):
     form = AdoptionForm
-
+    cat = Cats.objects.get(id=pk)
+    
     if request.method == 'POST':
         form = AdoptionForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.SUCCESS(request, 'Your adoption request has been submitted successfully!')
+            messages.success(request, 'Your adoption request has been submitted successfully!')
             return redirect('home')
         else:
             form = AdoptionForm()
 
-    context = {'form': form}
+    context = {
+        'form': form,
+        'cat': cat,
+        }
     return render(request, 'adoption.html', context)
 
 

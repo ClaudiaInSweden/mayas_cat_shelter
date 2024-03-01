@@ -28,7 +28,7 @@ class CatsForm(ModelForm):
 class AdoptionForm(ModelForm):
     class Meta:
         model = Adoption
-        fields = '__all__'
+        fields = ('name', 'email', 'phone', 'date_of_birth', 'about_you')
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.TextInput(attrs={'class': 'form-control'}),
@@ -37,5 +37,10 @@ class AdoptionForm(ModelForm):
             'about_you': forms.Textarea(attrs={'class': 'form-control'}),
             'catname': forms.Select(attrs={'class': 'form-control'}),
         }
+
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     cats = Cats.objects.all()
+    #     catname = [(c.id, c.name) for c in cats]
 
 
