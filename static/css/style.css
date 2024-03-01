@@ -99,6 +99,10 @@ legend.custom-border {
   text-transform: uppercase;
 }
 
+td {
+  padding: 0 5px;
+}
+
 @media screen and (min-width: 576px) {
   .logotype {
     padding-right: 30px;

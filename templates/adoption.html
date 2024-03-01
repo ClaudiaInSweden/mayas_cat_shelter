@@ -13,7 +13,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-8 form-box">
+            <div class="col-12 col-lg-8">
                 <div class="form-group">
                     <form action="" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
@@ -25,20 +25,28 @@
                         </fieldset>                      
                 </div>
             </div>
-            <div class="col-12 col-lg-4 form-box">
+            <div class="col-12 col-lg-4">
                 <fieldset class="custom-border">
                     <legend class="custom-border">
                         <h5>Cat to adopt:</h5>
                     </legend>
-                    <p class="ml-3">
-                        Name: {{ cat.name }}
-                    </p>
-                    <p>
-                        Born: {{ cat.born }}
-                    </p>
-                    <p> 
-                        Gender: {{ cat.gender }}
-                    </p>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Name: </th>
+                                <td>{{ cat.name }}</td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Born: </th>
+                                <td>{{ cat.born }}</td>
+                            </tr>
+                            <tr>
+                                <td>Gender: </th>
+                                <td>{{ cat.gender }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </fieldset>
             </div>
             <div buttons>
