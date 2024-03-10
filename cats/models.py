@@ -4,8 +4,10 @@ from cloudinary.models import CloudinaryField
 from django_resized import ResizedImageField
 from phone_field import PhoneField
 
-
 class Cats(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Cats'
 
     STATUS = (
         ('Draft', 'Draft'),
@@ -50,10 +52,9 @@ class Adoption(models.Model):
     phone = PhoneField(null=True, blank=True)
     date_of_birth = models.DateField(null=True, blank=True)
     about_you = models.TextField(null=True, blank=True)
-    catname = models.ManyToManyField(Cats)
+    catname = models.ForeignKey('Cats', null=True, blank=True, on_delete=models.SET_NULL)
     date_created = models.DateField(auto_now_add=True, null=True)
    
    
     def __str__(self):
-        return f'{self.name} Cat: {self.catname}'
-
+        return f'{self.name}'

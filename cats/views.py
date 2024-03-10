@@ -65,6 +65,7 @@ def adoption(request, pk):
         form = AdoptionForm(request.POST)
         if form.is_valid():
             form.save()
+            cat.save()
             messages.success(request, 'Your adoption request has been submitted successfully!')
             return redirect('home')
         else:

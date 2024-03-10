@@ -1,5 +1,6 @@
 from django.forms import ModelForm
 from django import forms
+from datetime import datetime
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from phone_field import PhoneField
@@ -17,7 +18,7 @@ class CatsForm(ModelForm):
         fields = '__all__'
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'born': DateInput(),
+            'born': forms.DateInput(attrs={'type': 'date', 'max': datetime.now().date()}),
             'gender': forms.Select(attrs={'class': 'form-control'}),
             'description': forms.Textarea(attrs={'class': 'form-control'}),
             'status': forms.Select(attrs={'class': 'form-control'}),
@@ -33,7 +34,6 @@ class AdoptionForm(ModelForm):
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.TextInput(attrs={'class': 'form-control'}),
             'phone': forms.TextInput(attrs={'class': 'form-control'}),
-            'date_of_birth': DateInput(),
+            'date_of_birth': forms.DateInput(attrs={'type': 'date', 'max': datetime.now().date()}),
             'about_you': forms.Textarea(attrs={'class': 'form-control'}),
-            'catname': forms.Select(attrs={'class': 'form-control'}),
         }
