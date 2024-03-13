@@ -21,7 +21,7 @@
                             <legend class="custom-border">
                                 <h5>Your Details:</h5>
                             </legend>
-                            {{ form|crispy }}
+                            {{ adoption_form|crispy }}
                         </fieldset>                      
                 </div>
             </div>
@@ -30,6 +30,7 @@
                     <legend class="custom-border">
                         <h5>Cat to adopt:</h5>
                     </legend>
+                    
                     <table>
                         <tbody>
                             <tr>
@@ -61,3 +62,9 @@
 
 
 {% endblock content %}
+
+{% block scripts %}
+<script>
+    $("#id_cats").select2();
+</script>
+{% endblock %}

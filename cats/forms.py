@@ -11,7 +11,6 @@ class DateInput(forms.DateInput):
     input_type = 'date'
 
 
-
 class CatsForm(ModelForm):
     class Meta:
         model = Cats
@@ -29,11 +28,12 @@ class CatsForm(ModelForm):
 class AdoptionForm(ModelForm):
     class Meta:
         model = Adoption
-        fields = ('name', 'email', 'phone', 'date_of_birth', 'about_you')
+        fields = ('full_name', 'email', 'phone', 'date_of_birth', 'about_you', 'cats',)
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'full_name': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.TextInput(attrs={'class': 'form-control'}),
             'phone': forms.TextInput(attrs={'class': 'form-control'}),
             'date_of_birth': forms.DateInput(attrs={'type': 'date', 'max': datetime.now().date()}),
             'about_you': forms.Textarea(attrs={'class': 'form-control'}),
         }
+

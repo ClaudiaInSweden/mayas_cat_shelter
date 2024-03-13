@@ -35,10 +35,11 @@
                 <p>{{ cat.adopt_status }}</p>
               </div>
               <div class="card-body">
-                <a class="btn btn-secondary" href="{% url 'adoption' cat.id %}">Adopt</a>
-
-
-
+                <!-- <form action="{% url 'adoption' %}" method="POST">
+                  {% csrf_token %}
+                  <input type="submit" class="btn btn-secondary" value="Adopt">
+                </form> -->
+                <a class="btn btn-secondary" href="{% url 'adoption' %}">Adopt</a>
 
               </div>
             </div>
