@@ -21,7 +21,11 @@
                             <legend class="custom-border">
                                 <h5>Your Details:</h5>
                             </legend>
-                            {{ adoption_form|crispy }}
+                            {{ adoption_form.full_name | as_crispy_field }}
+                            {{ adoption_form.email | as_crispy_field }}
+                            {{ adoption_form.phone | as_crispy_field }}
+                            {{ adoption_form.date_of_birth | as_crispy_field }}
+                            {{ adoption_form.about_you | as_crispy_field }}
                         </fieldset>                      
                 </div>
             </div>
@@ -30,24 +34,10 @@
                     <legend class="custom-border">
                         <h5>Cat to adopt:</h5>
                     </legend>
+                    <div class="cat_selection">
+                        {{ adoption_form.cats | as_crispy_field }}
+                    </div>
                     
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Name: </th>
-                                <td>{{ cat.name }}</td>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Born: </th>
-                                <td>{{ cat.born }}</td>
-                            </tr>
-                            <tr>
-                                <td>Gender: </th>
-                                <td>{{ cat.gender }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </fieldset>
             </div>
             <div buttons>
@@ -65,6 +55,9 @@
 
 {% block scripts %}
 <script>
-    $("#id_cats").select2();
+    $("#id_cats").select2({
+        placeholder: "Please select .",
+        maximumSelectionLength: "3",
+    });
 </script>
 {% endblock %}

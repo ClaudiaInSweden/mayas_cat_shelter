@@ -30,10 +30,19 @@ class AdoptionForm(ModelForm):
         model = Adoption
         fields = ('full_name', 'email', 'phone', 'date_of_birth', 'about_you', 'cats',)
         widgets = {
-            'full_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'email': forms.TextInput(attrs={'class': 'form-control'}),
-            # 'phone': forms.PhoneNumberField(attrs={'class': 'form-control'}),
-            'date_of_birth': forms.DateInput(attrs={'type': 'date', 'max': datetime.now().date()}),
-            'about_you': forms.Textarea(attrs={'class': 'form-control'}),
+            'full_name': forms.TextInput(attrs={'placeholder': 'Full Name *'}),
+            'email': forms.TextInput(attrs={'placeholder': 'E-Mail *'}),
+            'phone': forms.TextInput(attrs={'placeholder': 'Please enter your phone number incl. country code *'}), 
+            'date_of_birth': forms.DateInput(attrs={'placeholder': 'Select date...','type': 'date', 'max': datetime.now().date()}),
+            'about_you': forms.Textarea(attrs={'placeholder': 'Please tell us about you, your family and your experience with cats *'}),
         }
+    def __init__(self, *args, **kwargs):
+        """
+        Set autofocus on full_name field and remove auto-labels
+        """
+        super().__init__(*args, **kwargs)
+        self.fields['full_name'].widget.attrs['autofocus'] = True
+        for field in self.fields:
+            self.fields[field].label = False
+
 

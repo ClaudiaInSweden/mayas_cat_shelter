@@ -103,6 +103,14 @@ td {
   padding: 0 5px;
 }
 
+.form-control {
+  color: grey;
+}
+
+.cat_selection {
+  min-height: 200px;
+}
+
 @media screen and (min-width: 576px) {
   .logotype {
     padding-right: 30px;
