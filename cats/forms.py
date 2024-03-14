@@ -3,7 +3,7 @@ from django import forms
 from datetime import datetime
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from phone_field import PhoneField
+from phonenumber_field.formfields import PhoneNumberField
 from .models import Cats, Adoption
 
 
@@ -32,7 +32,7 @@ class AdoptionForm(ModelForm):
         widgets = {
             'full_name': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.TextInput(attrs={'class': 'form-control'}),
-            'phone': forms.TextInput(attrs={'class': 'form-control'}),
+            # 'phone': forms.PhoneNumberField(attrs={'class': 'form-control'}),
             'date_of_birth': forms.DateInput(attrs={'type': 'date', 'max': datetime.now().date()}),
             'about_you': forms.Textarea(attrs={'class': 'form-control'}),
         }

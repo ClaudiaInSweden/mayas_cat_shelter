@@ -43,13 +43,14 @@ CLOUDINARY_CONFIG = {
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-claudiainsw-mayascatshe-m76kzh0xzrw.ws-eu108.gitpod.io',
     'https://8000-claudiainsw-mayascatshe-m76kzh0xzrw.ws-eu109.gitpod.io',
+    'https://8000-claudiainsw-mayascatshe-m76kzh0xzrw.ws-eu110.gitpod.io',
     'https://mayas-cat-shelter-9ef5d0b15271.herokuapp.com/',
 ]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mayas-cat-shelter-9ef5d0b15271.herokuapp.com', '8000-claudiainsw-mayascatshe-m76kzh0xzrw.ws-eu108.gitpod.io', '8000-claudiainsw-mayascatshe-m76kzh0xzrw.ws-eu109.gitpod.io']
+ALLOWED_HOSTS = ['mayas-cat-shelter-9ef5d0b15271.herokuapp.com', '8000-claudiainsw-mayascatshe-m76kzh0xzrw.ws-eu108.gitpod.io', '8000-claudiainsw-mayascatshe-m76kzh0xzrw.ws-eu110.gitpod.io', '8000-claudiainsw-mayascatshe-m76kzh0xzrw.ws-eu109.gitpod.io']
 
 
 # Application definition
@@ -72,7 +73,7 @@ INSTALLED_APPS = [
     'bootstrap_datepicker_plus',
     'crispy_forms',
     'crispy_bootstrap5',
-    'phone_field',
+    'phonenumber_field',
     'cats',
 ]
 

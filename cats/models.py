@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django_resized import ResizedImageField
-from phone_field import PhoneField
+from phonenumber_field.modelfields import PhoneNumberField
 
 class Cats(models.Model):
 
@@ -48,7 +48,7 @@ class Adoption(models.Model):
 
     full_name = models.CharField(max_length=200, null=False, blank=False)
     email = models.EmailField(null=False, blank=False)
-    phone = PhoneField(null=False, blank=False)
+    phone = PhoneNumberField(null=False, blank=False)
     date_of_birth = models.DateField(null=False, blank=False)
     about_you = models.TextField(null=False, blank=False)
     cats = models.ManyToManyField(Cats)
@@ -56,4 +56,4 @@ class Adoption(models.Model):
    
    
     def __str__(self):
-        return f'{self.full_name}'
+        return f'{self.full_name} - Catnames: {self.cats} - {self.date_of_birth} - {self.about_you} - {self.received}'

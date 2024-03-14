@@ -20,18 +20,6 @@ class CatsAdmin(admin.ModelAdmin):
 
     ordering = ('name',)
 
-
-
-# class AdoptionAdmin(admin.ModelAdmin):
-#     list_display = (
-#         'full_name',
-#         'email',
-#         'phone',
-#         'date_of_birth',
-#         'about_you',
-#         'received',
-#         'cat',
-#     )
     
 
 admin.site.register(Cats, CatsAdmin)
