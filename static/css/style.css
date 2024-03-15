@@ -1,13 +1,21 @@
-
 html { 
   height: 100%;
 }
 body {
   margin-bottom: 60px; /* Margin bottom by footer height */
   font-size: 1rem;
+  font-family: "Prompt", sans-serif;
+  color: #1D3557;
+  background-color: #f1faee;
   min-height: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.prompt-regular {
+  font-family: "Prompt", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 main {
@@ -28,8 +36,26 @@ h1, h2, h3 {
   font-weight: 600;
   font-size: 1.5em;
   text-transform: uppercase;
+  background-color: #a8dadc;
+  color: #1D3557;
 }
 
+.bg-light {
+  background-color: #a8dadc !important;
+  color: #1D3557 !important;
+}
+.nav-link {
+  color: #1D3557;
+}
+.navbar-light .navbar-brand {
+  color: #1D3557;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: #1D3557;
+}
+.navbar-toggler-icon {
+  color: #1D3557 !important;
+}
 .logotype {
   padding-right: 10px;
 }
@@ -39,7 +65,8 @@ h1, h2, h3 {
   width: 100%;
   height: 60px; /* Set the fixed height of the footer here */
   line-height: 60px; /* Vertically center the text there */
-  background-color: #f5f5f5;
+  background-color: #a8dadc;
+  color: #1D3557;
 }
 
 .carousel-item {
@@ -58,7 +85,7 @@ h1, h2, h3 {
 
 .carousel-caption h5 {
   font-size: 2rem;
-  color: #fff;
+  color: #f1faee;
 }
 
 .carousel-caption a {
@@ -66,9 +93,11 @@ h1, h2, h3 {
 }
 
 .carousel-caption h5:hover {
-  color: #000000;
+  color: #457b9d;
 }
-
+.card-body {
+color: #1D3557;
+}
 .card-text {
   font-size: 1em;
 }
@@ -99,18 +128,35 @@ legend.custom-border {
   text-transform: uppercase;
 }
 
-td {
-  padding: 0 5px;
-}
-
 .form-control {
-  color: grey;
+  color: #a8dadc;
 }
 
-.cat_selection {
-  min-height: 200px;
+/* Adoption rules page */
+.pawlist{
+	position: relative;
+	list-style: none;
+	margin-left: 0;
+	padding-left: 1em;
+}
+.pawlist li:before {    
+  font-family: 'FontAwesome';
+  content: '\f1b0';
+  margin:0 10px 0 -10px;
+}
+.card {
+  border-radius: 10px !important;
+}
+.card img {
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
+@media screen and (max-width: 576px) {
+  .logotype {
+    display: none;
+  }
+}
 @media screen and (min-width: 576px) {
   .logotype {
     padding-right: 30px;
