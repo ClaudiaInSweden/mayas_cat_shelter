@@ -21,13 +21,16 @@
             <div class="card-body">
               <h3 class="card-title cat_name" name="cat_name">{{ cat.name | upper }}</h3>
               {% if "placeholder" in cat.image.url %}
-              <img src="https://res.cloudinary.com/dhciyvwx5/image/upload/v1703268464/default_di3p4z.webp" class="card-img-top" alt="...">
+              <img src="https://res.cloudinary.com/dhciyvwx5/image/upload/v1703268464/default.png" class="card-img-top" alt="...">
               {% else %}
               <img src="{{ cat.image.url }}" class="card-img-top" alt="...">
               {% endif %}
               <div class="card-text">
                 <p>Born: {{ cat.born }}</p>
-                <p>Gender: {{ cat.gender }}</p>
+                
+                <p class="{% if cat.gender == 'Female' %}female{% else %}male{% endif %}">
+                  Gender: {{ cat.gender }}</p>
+                
                 <p>
                   <h6 class="card-title">Background & Temperament:</h6>
                 </p>
@@ -35,11 +38,7 @@
                 <p>{{ cat.adopt_status }}</p>
               </div>
               <div class="card-body">
-                <!-- <form action="{% url 'adoption' %}" method="POST">
-                  {% csrf_token %}
-                  <input type="submit" class="btn btn-secondary" value="Adopt">
-                </form> -->
-                <a class="btn btn-secondary" href="{% url 'adoption' %}">Adopt</a>
+                <a class="btn-card px-3 mx-auto btn-common" href="{% url 'adoption' %}">Adopt</a>
 
               </div>
             </div>

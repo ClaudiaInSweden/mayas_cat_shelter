@@ -87,6 +87,3 @@ def administration(request):
     catlist = Cats.objects.all()
     context = {'catlist': catlist}
     return render(request, 'administration.html', context)
-
-
-

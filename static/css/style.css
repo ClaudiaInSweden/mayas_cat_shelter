@@ -1,11 +1,14 @@
 html { 
   height: 100%;
 }
+:root {
+  --color: #1D3557;
+}
 body {
   margin-bottom: 60px; /* Margin bottom by footer height */
   font-size: 1rem;
-  font-family: "Prompt", sans-serif;
-  color: #1D3557;
+  font-family: "Prompt", sans-serif !important;
+  color: #1D3557 !important;
   background-color: #f1faee;
   min-height: 100%;
   display: flex;
@@ -23,12 +26,11 @@ main {
   top: 110px;
 }
 
-.container-bg {
-  background: url(https://res.cloudinary.com/dhciyvwx5/image/upload/v1703205683/cat-bg-op_olh2rs.png); 
-}
-
 h1, h2, h3 {
     text-transform: uppercase;
+    font-family: "Prompt", sans-serif !important;
+    color: #1D3557 !important;
+    font-weight: 400;
 }
 
 .logo {
@@ -96,6 +98,7 @@ h1, h2, h3 {
   color: #457b9d;
 }
 .card-body {
+
 color: #1D3557;
 }
 .card-text {
@@ -127,9 +130,34 @@ fieldset.custom-border {
 legend.custom-border {
   text-transform: uppercase;
 }
-
+.select2-container .select2-search--inline .select2-search__field {
+  box-sizing: border-box;
+  border: none;
+  border-radius: 10px;
+  margin-left: 0 !important;
+  margin-top: 0 !important;
+  padding: 0.375rem 0.75rem;
+  max-width: 100%;
+  resize: none;
+  height: 1.5rem;
+  vertical-align: middle !important;
+  overflow: hidden;
+  word-break: keep-all;
+  font-family: 'Prompt', sans-serif;
+  font-weight: 400;
+}
+.select2-container .select2-search--inline .select2-search__field::placeholder {
+  vertical-align: middle;
+}
+.select2-results__options {
+  font-family: 'Prompt', sans-serif;
+  font-weight: 400;
+  line-height: 1;
+}
 .form-control {
-  color: #a8dadc;
+  color: grey;
+  font-family: "Prompt", sans-serif;
+  border-radius: 10px;
 }
 
 /* Adoption rules page */
@@ -146,10 +174,67 @@ legend.custom-border {
 }
 .card {
   border-radius: 10px !important;
+  font-family: "Prompt", sans-serif !important;
+  color: #1D3557 !important;
+  border: #1D3557 !important;
 }
 .card img {
-  padding-top: 16px;
   padding-bottom: 16px;
+}
+.female {
+  color: #e63946;
+}
+.male {
+  color: #457b9d;
+}
+.btn-common {
+  border-radius: 10px;
+  border: 2px solid #1D3557;
+  color: #1D3557;
+  transition-duration: 0.7s;
+  text-decoration: none;
+  padding: 0.375rem 1.5rem;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.btn-common:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  box-shadow: 0 5px 8px 0 rgb(29, 53, 87, 0.5);
+  font-size: 1.1rem;
+  color: #1D3557;
+}
+
+.btn-card {
+  border-radius: 10px;
+  border: 2px solid #1D3557;
+  background-color: #a8dadc;
+  color: #1D3557;
+  transition-duration: 0.7s;
+  text-decoration: none;
+  padding: 0.375rem 1.5rem;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1rem;
+}
+input[type="submit"], input[type="reset"] {
+  border-radius: 10px;
+  border: 2px solid #1D3557;
+  color: #1D3557;
+  transition-duration: 0.7s;
+  text-decoration: none;
+  padding: 0.375rem 1.5rem;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+input[type="submit"] {
+  background-color: #a8dadc;
+}
+input[type="reset"] {
+  background-color: #f1faee;
 }
 
 @media screen and (max-width: 576px) {

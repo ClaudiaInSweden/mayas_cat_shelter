@@ -40,9 +40,10 @@
                     
                 </fieldset>
             </div>
-            <div buttons>
+            <div class="col-12 col-lg-4">
                 <span><input type="submit" value="Submit"></span>
                 <span><input type="reset" value="Reset"></span>
+            
             </div>
             </form>
         </div>
@@ -56,7 +57,7 @@
 {% block scripts %}
 <script>
     $("#id_cats").select2({
-        placeholder: "Please select .",
+        placeholder: "Please select ...",
         maximumSelectionLength: "3",
     });
 </script>
