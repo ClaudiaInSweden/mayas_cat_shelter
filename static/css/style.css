@@ -32,7 +32,7 @@ h1, h2, h3 {
     color: #1D3557 !important;
     font-weight: 400;
 }
-
+/* Navigation */
 .logo {
   font-family: 'Playpen Sans', sans-serif, cursive;
   font-weight: 600;
@@ -41,7 +41,6 @@ h1, h2, h3 {
   background-color: #a8dadc;
   color: #1D3557;
 }
-
 .bg-light {
   background-color: #a8dadc !important;
   color: #1D3557 !important;
@@ -61,7 +60,7 @@ h1, h2, h3 {
 .logotype {
   padding-right: 10px;
 }
-
+/* Footer  */
 .footer {
   margin-top: auto;
   width: 100%;
@@ -70,7 +69,7 @@ h1, h2, h3 {
   background-color: #a8dadc;
   color: #1D3557;
 }
-
+/* Home Page */
 .carousel-item {
   height: 65vh;
   min-height: 350px;
@@ -80,53 +79,52 @@ h1, h2, h3 {
   -o-background-size: cover;
   background-size: cover;
 }
-
 .carousel-caption {
   font-size: 1.25rem;
 }
-
 .carousel-caption h5 {
   font-size: 2rem;
   color: #f1faee;
 }
-
 .carousel-caption a {
   text-decoration: none;
 }
-
 .carousel-caption h5:hover {
   color: #457b9d;
 }
+/* Cats page */
 .card-body {
-
 color: #1D3557;
 }
 .card-text {
   font-size: 1em;
 }
-
+.female {
+  color: #e63946;
+}
+.male {
+  color: #457b9d;
+}
 .btn-right {
   text-align: right;
   padding-right: 40px;
 }
-
+/* Login/Logout page */
 .auth-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
+/* Adoption form */
 fieldset, legend {
   all: revert;
 }
-
 fieldset.custom-border {
   border: 1px solid;
   border-radius: 10px;
   padding: 10px;
 }
-
 legend.custom-border {
   text-transform: uppercase;
 }
@@ -159,18 +157,17 @@ legend.custom-border {
   font-family: "Prompt", sans-serif;
   border-radius: 10px;
 }
-
 /* Adoption rules page */
-.pawlist{
+.pawlist {
 	position: relative;
 	list-style: none;
 	margin-left: 0;
-	padding-left: 1em;
+  text-indent: -1em;
 }
 .pawlist li:before {    
   font-family: 'FontAwesome';
   content: '\f1b0';
-  margin:0 10px 0 -10px;
+  margin: 0 10px 0 -10px;
 }
 .card {
   border-radius: 10px !important;
@@ -181,12 +178,7 @@ legend.custom-border {
 .card img {
   padding-bottom: 16px;
 }
-.female {
-  color: #e63946;
-}
-.male {
-  color: #457b9d;
-}
+/* Buttons */
 .btn-common {
   border-radius: 10px;
   border: 2px solid #1D3557;
@@ -205,7 +197,6 @@ input[type="reset"]:hover {
   font-size: 1.1rem;
   color: #1D3557;
 }
-
 .btn-card {
   border-radius: 10px;
   border: 2px solid #1D3557;

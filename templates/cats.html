@@ -8,7 +8,7 @@
 {% block content %}
 <main>
 <div class="container mt-5">
-  <h2>Cats available for adoption</h2>
+  <h1>Cats available for adoption</h1>
   <p></p>
 </div>
 <div class="container mt-3">
@@ -37,7 +37,7 @@
                 <p>{{ cat.description }}</p>
                 <p>{{ cat.adopt_status }}</p>
               </div>
-              <div class="card-body">
+              <div class="card-body text-center">
                 <a class="btn-card px-3 mx-auto btn-common" href="{% url 'adoption' %}">Adopt</a>
 
               </div>
