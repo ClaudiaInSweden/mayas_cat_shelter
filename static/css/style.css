@@ -183,6 +183,10 @@ legend.custom-border {
   height: 20vh;
   object-fit: contain;
 }
+.card-footer {
+  background-color: transparent;
+  border: none;
+}
 /* Buttons */
 .btn-common {
   border-radius: 10px;
