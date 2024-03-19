@@ -250,6 +250,40 @@ input[type="submit"] {
 input[type="reset"] {
   background-color: #f1faee;
 }
+.top-20 {
+  top: 12% !important;
+  z-index: 1000;
+}
+.alert {
+  z-index: 1000;
+  border-radius: 10px;
+  border: 1px solid #1D3557;
+  color: #1D3557;
+  font-size: 1.2rem;
+}
+.close {
+  border: none;
+  background-color: transparent;
+  color: #1D3557;
+  font-family: 'Gill Sans', sans-serif;
+  font-size: 30px;
+}
+th {
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+#id_phone_0 {
+  width: 25%;
+}
+#id_phone_1 {
+  width: 50%;
+}
+#div_id_phone {
+  flex-direction: row !important;
+  display: flex !important;
+  gap: 5px;
+}
 
 @media screen and (max-width: 768px) {
   .logotype {

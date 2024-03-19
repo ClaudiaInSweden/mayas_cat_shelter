@@ -23,8 +23,9 @@ def createCat(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'The cat has been added to the list of cats!')
-            return redirect('cats')
+            return redirect('administration')
         else:
+            messages.error(request, 'Your form could not be submitted. Please make sure the form is valid.')
             form = createCat()
 
     context = {'form': form}
@@ -32,15 +33,15 @@ def createCat(request):
 
 
 def updateCat(request, pk):
-    cat = Cats.objects.get(id=pk)
+    cat = get_object_or_404(Cats, id=pk)
     form = CatsForm(instance=cat)
 
     if request.method == 'POST':
         form = CatsForm(request.POST, request.FILES, instance=cat)
         if form.is_valid():
             form.save()
-            messages.success(request, 'The cat has been updated successfully!')
-            return redirect('cats')
+            messages.info(request, 'The cat was updated successfully!')
+            return redirect('administration')
         else:
             form = updateCat()
 
@@ -52,26 +53,25 @@ def deleteCat(request, pk):
     cat = Cats.objects.get(id=pk)
     if request.method == 'POST':
         cat.delete()
-        return redirect('cats')
+        return redirect('administration')
     context = {'cat': cat}
     return render(request, 'delete.html', context)
 
 
 def adoption(request):
-    adoption_form = AdoptionForm()
+    form = AdoptionForm()
     
     if request.method == 'POST':
-        adoption_form = AdoptionForm(request.POST)
-        if adoption_form.is_valid():
-            adoption_form.save()
+        form = AdoptionForm(request.POST)
+        if form.is_valid():
+            form.save()
             messages.success(request, 'Your adoption request has been submitted successfully!')
             return redirect('home')
         else:
-            adoption_form = AdoptionForm()
+            messages.error(request, 'Your form could not be submitted. Please make sure the form is valid.')
+            form = AdoptionForm()
 
-    context = {
-        'adoption_form': adoption_form,
-        }
+    context = {'form': form}
     return render(request, 'adoption.html', context)
 
 

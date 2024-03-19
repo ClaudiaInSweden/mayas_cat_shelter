@@ -28,9 +28,9 @@ class Cats(models.Model):
 
 
     name = models.CharField(max_length=200, null=False, blank=False)
-    born = models.DateField(null=True, blank=True)
+    born = models.DateField(null=True, blank=True, default='Will be updated soon')
     gender = models.CharField(choices=GENDER, default='Male')
-    description = models.TextField(null=True, blank=True)
+    description = models.TextField(null=True, blank=True, default='Will be updated soon')
     image = CloudinaryField('image', default='placeholder')
     status = models.CharField(choices=STATUS, default='Draft')
     adopt_status = models.CharField(choices=ADOPT_STATUS, default='Ready for adoption')
@@ -41,14 +41,14 @@ class Cats(models.Model):
         ordering = ['name']
 
     def __str__(self):
-        return f'{self.name} - Identification nr.: {self.id}'
+        return f'{self.name} - ID nr.: {self.id}'
     
 
 class Adoption(models.Model):
 
     full_name = models.CharField(max_length=200, null=False, blank=False)
     email = models.EmailField(null=False, blank=False)
-    phone = PhoneNumberField(null=False, blank=False)
+    phone = PhoneNumberField(null=False, blank=False, default='Phone number *')
     date_of_birth = models.DateField(null=False, blank=False)
     about_you = models.TextField(null=False, blank=False)
     cats = models.ManyToManyField(Cats)

@@ -4,6 +4,10 @@ from datetime import datetime
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from phonenumber_field.formfields import PhoneNumberField
+from phonenumber_field.widgets import PhoneNumberPrefixWidget
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout
+from crispy_forms import bootstrap, layout
 from .models import Cats, Adoption
 
 
@@ -19,7 +23,7 @@ class CatsForm(ModelForm):
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'born': forms.DateInput(attrs={'type': 'date', 'max': datetime.now().date()}),
             'gender': forms.Select(attrs={'class': 'form-control'}),
-            'description': forms.Textarea(attrs={'class': 'form-control'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 5}),
             'status': forms.Select(attrs={'class': 'form-control'}),
             'adopt_status': forms.Select(attrs={'class': 'form-control'}),
         }
@@ -30,12 +34,13 @@ class AdoptionForm(ModelForm):
         model = Adoption
         fields = ('full_name', 'email', 'phone', 'date_of_birth', 'about_you', 'cats',)
         widgets = {
-            'full_name': forms.TextInput(attrs={'placeholder': 'Full Name *'}),
-            'email': forms.TextInput(attrs={'placeholder': 'E-Mail *'}),
-            'phone': forms.TextInput(attrs={'placeholder': 'Please enter your phone number incl. country code *'}), 
-            'date_of_birth': forms.DateInput(attrs={'placeholder': 'Select date...','type': 'date', 'max': datetime.now().date()}),
-            'about_you': forms.Textarea(attrs={'placeholder': 'Please tell us about you, your family and your experience with cats *'}),
+            'full_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Full Name *'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'E-Mail *'}),
+            'phone': PhoneNumberPrefixWidget(attrs={'placeholder': ('Phone number'), 'class': 'form-control'}, initial='SE'), 
+            'date_of_birth': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Select date...','type': 'date', 'max': datetime.now().date()}),
+            'about_you': forms.Textarea(attrs={'class': 'form-control', 'rows': 5, 'placeholder': 'Please tell us about you, your family and your experience with cats *'}),
         }
+       
     def __init__(self, *args, **kwargs):
         """
         Set autofocus on full_name field and remove auto-labels
@@ -44,5 +49,4 @@ class AdoptionForm(ModelForm):
         self.fields['full_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
             self.fields[field].label = False
-
 

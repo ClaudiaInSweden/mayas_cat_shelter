@@ -31,7 +31,21 @@
 <title>Mayas Cat Shelter</title>
 </head>
 <body>
+<!--Messages start-->
+{% if messages %}
+{% for message in messages %}
 
+<div class="top-20 position-absolute start-50 translate-middle-x">
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+{% endfor %}
+{% endif %}
+<!--Messages end-->
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="container">
@@ -48,7 +62,7 @@
           <a class="nav-link" href="{% url 'cats' %}">Our cats</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'rules' %}">Adoption Rules</a>
+          <a class="nav-link" href="{% url 'rules' %}">Adoption</a>
         </li>
         {% if user.is_staff %}
           <li class="nav-item">
@@ -58,7 +72,7 @@
           {% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
-              href="{% url 'account_logout' %}">Staff Logout</a>
+              href="{% url 'account_logout' %}">Logout</a>
           </li>
           {% else %}
           <li class="nav-item">
@@ -71,22 +85,22 @@
     </div>
   </div>
 </nav>
-<div class="container">
-  <div class="row">
-      <div class="col-md-8 offset-md-2">
-          {% for message in messages %}
-          <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
-              {{ message | safe }}
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-          {% endfor %}
-      </div>
+    <!--Messages start-->
+{% if messages %}
+{% for message in messages %}
+
+<div class="top-20 position-absolute start-50 translate-middle-x">
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
 </div>
-
-
+{% endfor %}
+{% endif %}
+    <!--Messages end-->
 {% block content %}
-
 
 {% endblock %}
 <div class="push"></div>
@@ -103,12 +117,13 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
   </script>
-   <script>
-    setTimeout(function () {
-        let messages = document.getElementById('msg');
-        let alert = new bootstrap.Alert(messages);
-        alert.close();
-    }, 2500);
+<script>
+  setTimeout(function () {
+    let messages = document.getElementById('msg');
+    let alert = new bootstrap.Alert(messages);
+    alert.close();
+  }, 2500);
 </script>
+
 </body>
 </html>

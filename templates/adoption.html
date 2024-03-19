@@ -7,48 +7,55 @@
 
 {% block content %}
 <main>
-    <div class="container">
-        <h2>Please complete the form.</h2>
-        <p>Our ambition is to answer your request within 2 weeks.</p>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-8">
-                <div class="form-group">
-                    <form action="" method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        <fieldset class="custom-border">
-                            <legend class="custom-border">
-                                <h5>Your Details:</h5>
-                            </legend>
-                            {{ adoption_form.full_name | as_crispy_field }}
-                            {{ adoption_form.email | as_crispy_field }}
-                            {{ adoption_form.phone | as_crispy_field }}
-                            {{ adoption_form.date_of_birth | as_crispy_field }}
-                            {{ adoption_form.about_you | as_crispy_field }}
-                        </fieldset>                      
-                </div>
-            </div>
-            <div class="col-12 col-lg-4">
-                <fieldset class="custom-border">
-                    <legend class="custom-border">
-                        <h5>Cat to adopt:</h5>
-                    </legend>
-                    <div class="cat_selection">
-                        {{ adoption_form.cats | as_crispy_field }}
-                    </div>
-                    
-                </fieldset>
-            </div>
-            <div class="col-12 col-lg-4">
-                <span><input type="submit" value="Submit"></span>
-                <span><input type="reset" value="Reset"></span>
-            
-            </div>
-            </form>
+    <section class="py-5">
+        <div class="container mt-3">
+            <h1 class="fw-light">Please complete the form.</h1>
+            <p>Our ambition is to answer your request within 2 weeks.</p>
         </div>
-    </div>
-</section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="form-group">
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <fieldset class="custom-border">
+                                <legend class="custom-border">
+                                    <h5>Your Details: </h5> 
+                                </legend>
+                                {{ form.full_name | as_crispy_field }}
+                                {{ form.email | as_crispy_field }}
+                                <div class="form-group one_row d-inline">
+                                <div class="row align-items-center">
+                                        <div class="input-group">
+                                            <span class="d-inline">
+                                            {{ form.phone | as_crispy_field }}
+                                        </span>
+                                    </div>
+                                </div>   
+                            </div>
+                                {{ form.date_of_birth | as_crispy_field }}
+                                {{ form.about_you | as_crispy_field }}
+                            </fieldset>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <fieldset class="custom-border">
+                        <legend class="custom-border">
+                            <h5>Cat to adopt: </h5>
+                        </legend>
+                        <div class="cat_selection">
+                            {{ form.cats | as_crispy_field }}
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <span><input type="submit" value="Submit"></span>
+                    <span><input type="reset" value="Reset"></span>
+                </div>
+                </form>
+            </div>
+        </div>
+    </section>
 </main>
 
 
