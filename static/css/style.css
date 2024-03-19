@@ -285,6 +285,7 @@ th {
   gap: 5px;
 }
 
+
 @media screen and (max-width: 768px) {
   .logotype {
     display: none;

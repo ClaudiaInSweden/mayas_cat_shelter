@@ -10,5 +10,6 @@ urlpatterns = [
     path('update-cat/<str:pk>/', views.updateCat, name='update-cat'),
     path('delete-cat/<str:pk>/', views.deleteCat, name='delete-cat'),
     path('rules/', views.rules, name='rules'),
-    path('administration/', views.administration, name='administration')
+    path('administration/', views.administration, name='administration'),
+    path('adopters-list/', views.adoptersList, name='adopters-list')
 ]

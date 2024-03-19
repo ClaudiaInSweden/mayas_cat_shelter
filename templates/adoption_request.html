@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<main>
+    <section class="py-5">
+        <div class="container mt-3">
+            <h1 class="fw-light">Adoption Requests</h1>
+        </div>
+        <div class="container mt-3">
+            <div class="row">
+            </div>
+            <div class="card card-body">
+                <table class="table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Date of Birth</th>
+                        <th>E-Mail</th>
+                        <th>Phone</th>
+                        <th>About</th>
+                        <th>Cat</th>
+                    </tr>
+                    {% for adoption in adoptionlist %}
+                    <tr>
+                        <td>{{ adoption.full_name }}</td>
+                        <td>{{ adoption.date_of_birth }}</td>
+                        <td>{{ adoption.email }}</td>
+                        <td>{{ adoption.phone }}</td>
+                        <td>{{ adoption.about_you }}</td>
+                        <td>{{ adoption.cat.name }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

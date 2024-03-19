@@ -67,6 +67,7 @@
         {% if user.is_staff %}
           <li class="nav-item">
           <a class="nav-link" href="{% url 'administration' %}">Administration</a>
+          <a class="nav-link" href="{% url 'adopters-list' %}">Requests</a>
         </li> 
         {% endif %}
           {% if user.is_authenticated %}
