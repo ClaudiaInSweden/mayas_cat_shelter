@@ -10,34 +10,41 @@
 <main>
     <section class="py-5">
         <div class="container mt-3">
-            <h1 class="fw-light">Adoption Requests</h1>
+            <div class="row">
+                <h1 class="fw-light">Adoption Requests</h1>
+            </div>
         </div>
         <div class="container mt-3">
-            <div class="row">
-            </div>
-            <div class="card card-body">
-                <table class="table">
-                    <tr>
-                        <th>Name</th>
-                        <th>Date of Birth</th>
-                        <th>E-Mail</th>
-                        <th>Phone</th>
-                        <th>About</th>
-                        <th>Cat</th>
-                    </tr>
-                    {% for adoption in adoptionlist %}
-                    <tr>
-                        <td>{{ adoption.full_name }}</td>
-                        <td>{{ adoption.date_of_birth }}</td>
-                        <td>{{ adoption.email }}</td>
-                        <td>{{ adoption.phone }}</td>
-                        <td>{{ adoption.about_you }}</td>
-                        <td>{{ adoption.cat.name }}</td>
-                    </tr>
-                    {% endfor %}
-                </table>
+        {% for adoption in adoptionlist %}
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-5">
+                    <div class="card-body custom-border">
+                        <div class="card-text">
+                            <div class="row">
+                            <div class="col-4"><strong>Name: </strong></div><div class="col-8">{{ adoption.full_name }}</div>
+                            <div class="col-4"><strong>Date of birth: </strong></div><div class="col-8">{{ adoption.date_of_birth|date:"M d, Y" }}</div>
+                            <div class="col-4"><strong>E-Mail: </strong></div><div class="col-8">{{ adoption.email }}</div>
+                            <div class="col-4"><strong>Phone: </strong></div><div class="col-8">{{ adoption.phone }}</div>
+                            <div class="col-4"><strong>Date received: </strong></div><div class="col-8">{{ adoption.received|date:"M d, Y" }}</div>
+                            <div class="col-4"><strong>Cats to adopt: </strong></div><div class="col-8">{{ adoption.cats.all|join:"<br>" }}</div>
+                                <!-- {% for cat in adoption.cats.all %} -->
+                                
+                                <!-- {% endfor %} -->
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                <div class="col-md-7">
+                    <div class="card-body custom-border">
+                        <div><strong>About me:</strong></div>
+                        <p>{{ adoption.about_you }}</p>
+                    </div>
+                </div>
+                
             </div>
         </div>
+        {% endfor %}
         </div>
     </section>
 </main>

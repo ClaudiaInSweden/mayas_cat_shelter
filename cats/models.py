@@ -56,4 +56,8 @@ class Adoption(models.Model):
    
    
     def __str__(self):
-        return f'{self.full_name} - Catnames: {self.cats} - {self.date_of_birth} - {self.about_you} - {self.received}'
+        return f'{self.full_name}  {self.received}'
+
+    class Meta:
+        ordering = ['-received']
+   
