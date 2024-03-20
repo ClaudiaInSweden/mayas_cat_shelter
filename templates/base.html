@@ -91,9 +91,9 @@
 {% for message in messages %}
 
 <div class="top-20 position-absolute start-50 translate-middle-x">
-  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <div class="alert alert-warning alert-dismissible fade show" role="alert" id="msg">
     {{ message }}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" title="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>

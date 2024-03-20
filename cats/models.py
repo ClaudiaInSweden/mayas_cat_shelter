@@ -46,6 +46,14 @@ class Cats(models.Model):
 
 class Adoption(models.Model):
 
+    STATUS = (
+        ('New Request', 'New Request'),
+        ('Contacted', 'Contacted'),
+        ('Home Visit', 'Home Visit'),
+        ('Booked', 'Booked'),
+        ('Adopted', 'Adopted')
+    )
+
     full_name = models.CharField(max_length=200, null=False, blank=False)
     email = models.EmailField(null=False, blank=False)
     phone = PhoneNumberField(null=False, blank=False, default='Phone number *')
@@ -53,6 +61,8 @@ class Adoption(models.Model):
     about_you = models.TextField(null=False, blank=False)
     cats = models.ManyToManyField(Cats)
     received = models.DateField(auto_now_add=True)
+    status = models.CharField(choices=STATUS, default='New Request')
+    comments = models.TextField(null=True, blank=True)
    
    
     def __str__(self):

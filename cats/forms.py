@@ -50,3 +50,35 @@ class AdoptionForm(ModelForm):
         for field in self.fields:
             self.fields[field].label = False
 
+
+class StatusForm(ModelForm):
+    class Meta:
+        model = Adoption
+        fields = ('full_name', 'email', 'phone', 'date_of_birth', 'about_you', 'cats', 'status', 'comments',)
+        # widgets = {
+        #     'full_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Full Name *'}),
+        #     'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'E-Mail *'}),
+        #     'phone': PhoneNumberPrefixWidget(attrs={'placeholder': ('Phone number'), 'class': 'form-control'}, initial='SE'), 
+        #     'date_of_birth': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Select date...','type': 'date', 'max': datetime.now().date()}),
+        #     'about_you': forms.Textarea(attrs={'class': 'form-control', 'rows': 5, 'placeholder': 'Please tell us about you, your family and your experience with cats *'}),
+        #     'status': forms.Select(attrs={'class': 'form-control'}),
+        #     'comments': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Comments'}),
+        # }
+        widgets = {
+            'full_name': forms.TextInput(attrs={'class': 'form-control', 'readonly': 'readonly'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'readonly': 'readonly'}),
+            'phone': PhoneNumberPrefixWidget(attrs={'readonly': 'readonly'}), 
+            'date_of_birth': forms.DateInput(attrs={'readonly': 'readonly'}),
+            'about_you': forms.Textarea(attrs={'readonly': 'readonly'}),
+            'status': forms.Select(attrs={'class': 'form-control'}),
+            'comments': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Comments', 'rows': 5}),
+        }
+       
+    def __init__(self, *args, **kwargs):
+        """
+        Set autofocus on full_name field and remove auto-labels
+        """
+        super().__init__(*args, **kwargs)
+        self.fields['status'].widget.attrs['autofocus'] = True
+        for field in self.fields:
+            self.fields[field].label = False

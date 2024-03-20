@@ -11,5 +11,6 @@ urlpatterns = [
     path('delete-cat/<str:pk>/', views.deleteCat, name='delete-cat'),
     path('rules/', views.rules, name='rules'),
     path('administration/', views.administration, name='administration'),
-    path('adopters-list/', views.adoptersList, name='adopters-list')
+    path('adopters-list/', views.adoptersList, name='adopters-list'),
+    path('update-status/<str:pk>/', views.updateStatus, name='update-status'),
 ]

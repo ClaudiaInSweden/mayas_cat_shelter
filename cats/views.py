@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from cloudinary.forms import cl_init_js_callbacks
 from .models import Cats, Adoption
-from .forms import CatsForm, AdoptionForm
+from .forms import CatsForm, AdoptionForm, StatusForm
 
 
 def cats(request):
@@ -76,6 +76,24 @@ def adoption(request):
 
     context = {'form': form}
     return render(request, 'adoption.html', context)
+
+
+def updateStatus(request, pk):
+    adoption = get_object_or_404(Adoption, id=pk)
+    form = StatusForm(instance=adoption)
+
+    if request.method == 'POST':
+        form = StatusForm(request.POST, instance=adoption)
+        if form.is_valid():
+            adoption = form.save()
+            messages.info(request, 'The request was updated successfully!')
+            return redirect('adopters-list')
+        else:
+            messages.error(request, 'The form could not be updated. Please make sure the form is valid.')
+            form = StatusForm(instance=adoption)
+
+    context = {'form': form}
+    return render(request, 'admin_adoption.html', context)
 
 
 def home(request):

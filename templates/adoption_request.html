@@ -22,23 +22,29 @@
                     <div class="card-body custom-border">
                         <div class="card-text">
                             <div class="row">
-                            <div class="col-4"><strong>Name: </strong></div><div class="col-8">{{ adoption.full_name }}</div>
-                            <div class="col-4"><strong>Date of birth: </strong></div><div class="col-8">{{ adoption.date_of_birth|date:"M d, Y" }}</div>
-                            <div class="col-4"><strong>E-Mail: </strong></div><div class="col-8">{{ adoption.email }}</div>
-                            <div class="col-4"><strong>Phone: </strong></div><div class="col-8">{{ adoption.phone }}</div>
-                            <div class="col-4"><strong>Date received: </strong></div><div class="col-8">{{ adoption.received|date:"M d, Y" }}</div>
-                            <div class="col-4"><strong>Cats to adopt: </strong></div><div class="col-8">{{ adoption.cats.all|join:"<br>" }}</div>
-                                <!-- {% for cat in adoption.cats.all %} -->
-                                
-                                <!-- {% endfor %} -->
+                            <div class="col-4"><h4>Name: </h4></div><div class="col-8">{{ adoption.full_name }}</div>
+                            <div class="col-4"><h4>Date of birth: </h4></div><div class="col-8">{{ adoption.date_of_birth|date:"M d, Y" }}</div>
+                            <div class="col-4"><h4>E-Mail: </h4></div><div class="col-8">{{ adoption.email }}</div>
+                            <div class="col-4"><h4>Phone: </h4></div><div class="col-8">{{ adoption.phone }}</div>
+                            <div class="col-4"><h4>Date received: </h4></div><div class="col-8">{{ adoption.received|date:"M d, Y" }}</div>
+                            <div class="col-4"><h4>Cats to adopt: </h4></div><div class="col-8">{{ adoption.cats.all|join:"<br>" }}</div>
+                                <hr>
+                            <div class="col-4"><h4>Status: </h4></div><div class="col-8">{{ adoption.status }}</div>    
+                            <div class="col-4"><h4>Comment: </h4></div>
+                            <div class="col-8">{{ adoption.comments }}</div> 
+                            <hr>
+                            
+                            </div>
+                            <div class="row">
+                                <div class="mt-3"><a href="{% url 'update-status' adoption.id %}" class="btn-card">Edit Status</a></div>
                             </div>
                         </div>
                         </div>
                     </div>
                 <div class="col-md-7">
                     <div class="card-body custom-border">
-                        <div><strong>About me:</strong></div>
-                        <p>{{ adoption.about_you }}</p>
+                        <div><h4>About me:</h4></div>
+                        <div>{{ adoption.about_you }}</div>
                     </div>
                 </div>
                 

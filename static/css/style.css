@@ -36,6 +36,11 @@ h1, h2, h3 {
     color: #1D3557 !important;
     font-weight: 400;
 }
+h4 {
+  text-transform: uppercase !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+}
 /* Navigation */
 .logo {
   font-family: 'Playpen Sans', sans-serif, cursive;
@@ -116,6 +121,11 @@ color: #1D3557;
 .male {
   color: #457b9d;
 }
+th {
+  text-transform: uppercase !important;
+  font-size: 1rem !important;
+  font-weight: 400;
+}
 .btn-right {
   text-align: right;
   padding-right: 40px;
@@ -167,6 +177,9 @@ legend.custom-border {
   color: grey;
   font-family: "Prompt", sans-serif;
   border-radius: 10px;
+}
+.form-select[multiple], .form-select[size]:not([size="1"]) {
+  border-radius: 10px !important;
 }
 /* Adoption rules page */
 .pawlist {
@@ -268,13 +281,8 @@ input[type="reset"] {
   font-family: 'Gill Sans', sans-serif;
   font-size: 30px;
 }
-th {
-  text-transform: uppercase;
-  font-weight: 400;
-}
-
 #id_phone_0 {
-  width: 25%;
+  width: 30%;
 }
 #id_phone_1 {
   width: 50%;
