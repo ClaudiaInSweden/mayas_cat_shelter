@@ -68,8 +68,8 @@ def adoption(request):
             adoption = form.save()
             messages.success(request, 'Your adoption request has been submitted successfully!')
             return redirect('home')
-        else:
-            messages.error(request, 'Your form could not be submitted. Please make sure the form is valid.')
+        # else:
+        #     messages.error(request, 'Your form could not be submitted. Please make sure the form is valid.')
             
     else:
         form = AdoptionForm()

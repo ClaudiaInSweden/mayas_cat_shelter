@@ -22,18 +22,29 @@
                                 <div class="form-group">
                                     <form action="" method="POST" enctype="multipart/form-data">
                                         {% csrf_token %}
-                                <div class="row">
-                                    <div class="col-4 pt-2"><h4>Name: </h4></div>
-                                    <div class="col-8" disabled aria-disabled="true">{{ form.full_name | as_crispy_field }}</div>
-                                    <div class="col-4 pt-2"><h4>Date of birth: </h4></div>
-                                    <div class="col-8">{{ form.date_of_birth| as_crispy_field }}</div>
-                                    <div class="col-4 pt-2"><h4>E-Mail: </h4></div>
-                                    <div class="col-8">{{ form.email | as_crispy_field }}</div>
-                                    <div class="col-4 pt-2"><h4>Phone: </h4></div>
-                                    <div class="col-8">{{ form.phone | as_crispy_field }}</div>
-                                    <div class="col-4 pt-2"><h4>Status: </h4></div>
-                                    <div class="col-8">{{ form.status | as_crispy_field }}</div>
-                                </div>
+                                        <div class="row">
+                                            <div class="col-4 pt-2">
+                                                <h4>Name: </h4>
+                                            </div>
+                                            <div class="col-8" disabled aria-disabled="true">
+                                                {{ form.full_name | as_crispy_field }}</div>
+                                            <div class="col-4 pt-2">
+                                                <h4>Date of birth: </h4>
+                                            </div>
+                                            <div class="col-8">{{ form.date_of_birth| as_crispy_field }}</div>
+                                            <div class="col-4 pt-2">
+                                                <h4>E-Mail: </h4>
+                                            </div>
+                                            <div class="col-8">{{ form.email | as_crispy_field }}</div>
+                                            <div class="col-4 pt-2">
+                                                <h4>Phone: </h4>
+                                            </div>
+                                            <div class="col-8">{{ form.phone | as_crispy_field }}</div>
+                                            <div class="col-4 pt-2">
+                                                <h4>Status: </h4>
+                                            </div>
+                                            <div class="col-8">{{ form.status | as_crispy_field }}</div>
+                                        </div>
                                 </div>
                             </div>
                         </div>
@@ -47,24 +58,28 @@
                         <hr>
                         <div class="col-md-5">
                             <div class="card-body custom-border">
-                        <div class="col-4"><h4>Selected cats: </h4></div>
-                        <div class="col-8">{{ adoption.cats.all|join:"<br>" }}</div>
-                        {{ form.cats | as_crispy_field}}
-                        <div buttons>
-                            <span><input type="submit" value="Update"></span>
-                            <span><input type="reset" value="Reset"></span>
-                        </div>
+                                <div class="col-4">
+                                    <h4>Selected cats: </h4>
+                                </div>
+                                <div class="col-8">{{ adoption.cats.all|join:"<br>" }}</div>
+                                {{ form.cats | as_crispy_field}}
+                                <div buttons>
+                                    <span><input type="submit" value="Update"></span>
+                                    <span><input type="reset" value="Reset"></span>
+                                </div>
                             </div>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="card-body custom-border">
-                        <div><h4>Comments:</h4></div>
-                        {{ form.comments | as_crispy_field }}
-                    </div>
-                    </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="card-body custom-border">
+                                <div>
+                                    <h4>Comments:</h4>
+                                </div>
+                                {{ form.comments | as_crispy_field }}
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </form>
+                </form>
             </div>
         </div>
         </div>

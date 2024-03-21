@@ -18,18 +18,15 @@ body {
   margin: 0;
   box-sizing: inherit;
 }
-
 .prompt-regular {
   font-family: "Prompt", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
-
 main {
   position: relative;
   padding-top: 100px;
 }
-
 h1, h2, h3 {
     text-transform: uppercase;
     font-family: "Prompt", sans-serif !important;
@@ -41,6 +38,7 @@ h4 {
   font-size: 1rem !important;
   font-weight: 400 !important;
 }
+
 /* Navigation */
 .logo {
   font-family: 'Playpen Sans', sans-serif, cursive;
@@ -62,14 +60,41 @@ h4 {
 }
 .navbar-light .navbar-nav .nav-link {
   color: #1D3557;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 .navbar-toggler-icon {
   color: #1D3557 !important;
 }
+.dropdown-menu {
+  background-color: #a8dadc;
+  border-radius: 10px;
+  border: none;
+}
+.nav-listtext {
+  font-size: o.9rem !important;
+}
 .logotype {
   padding-right: 10px;
 }
+
+
+/* Bootstrap Alerts */
+.alert {
+  position: fixed;
+  width: fit-content;
+  right: 0;
+  left: 0;
+  margin: auto;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+  text-align: center;
+  z-index: 9999;
+  background-color: #f1faee;
+  border: 2px solid #1D3557;
+  border-radius: 10px;
+  font-size: 1.2rem;
+}
+
 /* Footer  */
 .footer {
   margin-top: auto;
@@ -108,6 +133,7 @@ h4 {
 .carousel-caption h5:hover {
   font-size: 2.5rem;
 }
+
 /* Cats page */
 .card-body {
 color: #1D3557;
@@ -130,6 +156,7 @@ th {
   text-align: right;
   padding-right: 40px;
 }
+
 /* Login/Logout page */
 .auth-container {
   position: absolute;
@@ -137,6 +164,7 @@ th {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 /* Adoption form */
 fieldset, legend {
   all: revert;
@@ -181,7 +209,9 @@ legend.custom-border {
 .form-select[multiple], .form-select[size]:not([size="1"]) {
   border-radius: 10px !important;
 }
-/* Adoption rules page */
+
+/* Adoption process page */
+/* Replace list bullets with paw icon */
 .pawlist {
 	position: relative;
 	list-style: none;
@@ -196,6 +226,7 @@ legend.custom-border {
   content: '\f1b0';
   margin: 0 10px 0 -10px;
 }
+
 .card {
   border-radius: 10px !important;
   font-family: "Prompt", sans-serif !important;
@@ -267,25 +298,13 @@ input[type="reset"] {
   top: 12% !important;
   z-index: 1000;
 }
-.alert {
-  z-index: 1000;
-  border-radius: 10px;
-  border: 1px solid #1D3557;
-  color: #1D3557;
-  font-size: 1.2rem;
-}
-.close {
-  border: none;
-  background-color: transparent;
-  color: #1D3557;
-  font-family: 'Gill Sans', sans-serif;
-  font-size: 30px;
-}
+
+/* Phone number input fields */
 #id_phone_0 {
   width: 30%;
 }
 #id_phone_1 {
-  width: 50%;
+  width: 60%;
 }
 #div_id_phone {
   flex-direction: row !important;
@@ -294,6 +313,7 @@ input[type="reset"] {
 }
 
 
+/* Media Queries */
 @media screen and (max-width: 768px) {
   .logotype {
     display: none;
