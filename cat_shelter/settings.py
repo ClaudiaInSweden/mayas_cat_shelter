@@ -35,7 +35,7 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['mayas-cat-shelter-9ef5d0b15271.herokuapp.com', '8000-claudiainsw-mayascatshe-m76kzh0xzrw.ws-eu108.gitpod.io', '8000-claudiainsw-mayascatshe-m76kzh0xzrw.ws-eu110.gitpod.io', '8000-claudiainsw-mayascatshe-m76kzh0xzrw.ws-eu109.gitpod.io']
 
@@ -174,6 +174,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+PHONENUMBER_DEFAULT_FORMAT = 'E164'
 
 
 # Static files (CSS, JavaScript, Images)
