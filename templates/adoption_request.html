@@ -8,7 +8,7 @@
 {% block content %}
 
 <main>
-    <section class="py-5">
+    <section class="py-2">
         <div class="container mt-3">
             <div class="row">
                 <h1 class="fw-light">Adoption Requests</h1>
@@ -17,38 +17,37 @@
         <div class="container mt-3">
         {% for adoption in adoptionlist %}
         <div class="card mb-3">
-            <div class="row g-0">
+            <div class="row g-0 mb-2">
                 <div class="col-md-5">
                     <div class="card-body custom-border">
                         <div class="card-text">
-                            <div class="row">
-                            <div class="col-4"><h4>Name: </h4></div><div class="col-8">{{ adoption.full_name }}</div>
-                            <div class="col-4"><h4>Date of birth: </h4></div><div class="col-8">{{ adoption.date_of_birth|date:"M d, Y" }}</div>
-                            <div class="col-4"><h4>E-Mail: </h4></div><div class="col-8">{{ adoption.email }}</div>
-                            <div class="col-4"><h4>Phone: </h4></div><div class="col-8">{{ adoption.phone }}</div>
-                            <div class="col-4"><h4>Date received: </h4></div><div class="col-8">{{ adoption.received|date:"M d, Y" }}</div>
-                            <div class="col-4"><h4>Cats to adopt: </h4></div><div class="col-8">{{ adoption.cats.all|join:"<br>" }}</div>
+                            <div class="row g-0">
+                            <div class="col-5"><h4>Name: </h4></div><div class="col-7">{{ adoption.full_name }}</div>
+                            <div class="col-5"><h4>Date of birth: </h4></div><div class="col-7">{{ adoption.date_of_birth|date:"M d, Y" }}</div>
+                            <div class="col-5"><h4>E-Mail: </h4></div><div class="col-7">{{ adoption.email }}</div>
+                            <div class="col-5"><h4>Phone: </h4></div><div class="col-7">{{ adoption.phone }}</div>
+                            <div class="col-5"><h4>Date received: </h4></div><div class="col-7">{{ adoption.received|date:"M d, Y" }}</div>
+                            <div class="col-5"><h4>Cats to adopt: </h4></div><div class="col-7">{{ adoption.cats.all|join:"<br>" }}</div>
                                 <hr>
-                            <div class="col-4"><h4>Status: </h4></div><div class="col-8">{{ adoption.status }}</div>    
-                            <div class="col-4"><h4>Comment: </h4></div>
-                            <div class="col-8">{{ adoption.comments }}</div> 
+                            <div class="col-5"><h4>Status: </h4></div><div class="col-7">{{ adoption.status }}</div>    
+                            <div class="col-5"><h4>Comment: </h4></div>
+                            <div class="col-7">{{ adoption.comments }}</div> 
                             <hr>
-                            
-                            </div>
-                            <div class="row">
-                                <div class="mt-3"><a href="{% url 'update-status' adoption.id %}" class="btn-card">Edit Status</a></div>
-                            </div>
+                            </div>                         
                         </div>
                         </div>
                     </div>
                 <div class="col-md-7">
                     <div class="card-body custom-border">
-                        <div><h4>About me:</h4></div>
+                        <div><h4>About:</h4></div>
                         <div>{{ adoption.about_you }}</div>
                     </div>
                 </div>
-                
+                <div class="row">
+                    <div class="mt-1"><a href="{% url 'update-status' adoption.id %}" class="btn-card">Edit Status</a></div>
+                </div>
             </div>
+            
         </div>
         {% endfor %}
         </div>

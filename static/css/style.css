@@ -7,7 +7,7 @@ html {
 }
 body {
   /* margin-bottom: 60px;  */
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-family: "Prompt", sans-serif !important;
   color: #1D3557 !important;
   background-color: #f1faee;
@@ -30,23 +30,31 @@ main {
 h1, h2, h3 {
     text-transform: uppercase;
     font-family: "Prompt", sans-serif !important;
-    color: #1D3557 !important;
+    color: #1D3557;
     font-weight: 400;
 }
 h4 {
   text-transform: uppercase !important;
-  font-size: 1rem !important;
+  font-size: 0.8rem !important;
   font-weight: 400 !important;
+}
+h6 {
+  font-size: 0.8rem;
+}
+.linkcolor {
+  color: #1D3557 !important;
 }
 
 /* Navigation */
 .logo {
   font-family: 'Playpen Sans', sans-serif, cursive;
-  font-weight: 600;
-  font-size: 1.5em;
+  font-weight: 400;
+  font-size: 1.2rem;
   text-transform: uppercase;
   background-color: #a8dadc;
   color: #1D3557;
+  margin-right: 0;
+  letter-spacing: -0.9;
 }
 .bg-light {
   background-color: #a8dadc !important;
@@ -64,6 +72,8 @@ h4 {
 }
 .navbar-toggler-icon {
   color: #1D3557 !important;
+  width: 1.3em;
+  height: 1.3em;
 }
 .dropdown-menu {
   background-color: #a8dadc;
@@ -73,9 +83,7 @@ h4 {
 .nav-listtext {
   font-size: o.9rem !important;
 }
-.logotype {
-  padding-right: 10px;
-}
+
 
 
 /* Bootstrap Alerts */
@@ -100,14 +108,15 @@ h4 {
   margin-top: auto;
   position: sticky;
   width: 100%;
-  height: 60px; 
-  line-height: 60px; 
+  /* height: 60px;  */
+  /* line-height: 60px;  */
   background-color: #a8dadc;
   color: #1D3557;
+  font-size: .8rem;
 }
 .footer i {
   color: #1D3557;
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
 }
 
 /* Home Page */
@@ -149,8 +158,11 @@ color: #1D3557;
 }
 th {
   text-transform: uppercase !important;
-  font-size: 1rem !important;
+  font-size: 0.8rem !important;
   font-weight: 400;
+}
+td {
+  font-size: 0.8rem !important;
 }
 .btn-right {
   text-align: right;
@@ -183,12 +195,12 @@ legend.custom-border {
   border-radius: 10px;
   margin-left: 0 !important;
   margin-top: 0 !important;
-  padding: 0.375rem 0.75rem;
+  padding: 0.25rem 0.75rem;
   max-width: 100%;
   resize: none;
   height: 1.5rem;
   vertical-align: middle !important;
-  overflow: hidden;
+  overflow: visible;
   word-break: keep-all;
   font-family: 'Prompt', sans-serif;
   font-weight: 400;
@@ -199,15 +211,35 @@ legend.custom-border {
 .select2-results__options {
   font-family: 'Prompt', sans-serif;
   font-weight: 400;
-  line-height: 1;
+  line-height: 0.8 !important;
+  font-size: 0.8rem !important;
 }
 .form-control {
   color: grey;
   font-family: "Prompt", sans-serif;
   border-radius: 10px;
+  font-size: 0.8rem;
 }
 .form-select[multiple], .form-select[size]:not([size="1"]) {
   border-radius: 10px !important;
+}
+option {
+  /* min-height: 1.2em; */
+  padding: 0px 0.7px 0.7px;
+  font-size: 0.8rem;
+  line-height: 0.8;
+}
+/* Phone number input fields */
+#id_phone_0 {
+  width: 33%;
+}
+#id_phone_1 {
+  width: 60%;
+}
+#div_id_phone {
+  flex-direction: row !important;
+  display: flex !important;
+  gap: 5px;
 }
 
 /* Adoption process page */
@@ -226,7 +258,6 @@ legend.custom-border {
   content: '\f1b0';
   margin: 0 10px 0 -10px;
 }
-
 .card {
   border-radius: 10px !important;
   font-family: "Prompt", sans-serif !important;
@@ -252,16 +283,16 @@ legend.custom-border {
   color: #1D3557;
   transition-duration: 0.7s;
   text-decoration: none;
-  padding: 0.375rem 1.5rem;
+  padding: 0.25rem 1rem;
   text-align: center;
-  font-weight: 500;
-  font-size: 1rem;
+  font-weight: 400;
 }
 .btn-common:hover,
+.btn-card:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover {
   box-shadow: 0 5px 8px 0 rgb(29, 53, 87, 0.5);
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #1D3557;
 }
 .btn-card {
@@ -271,10 +302,9 @@ input[type="reset"]:hover {
   color: #1D3557;
   transition-duration: 0.7s;
   text-decoration: none;
-  padding: 0.375rem 1.5rem;
+  padding: 0.25rem 1rem;
   text-align: center;
-  font-weight: 500;
-  font-size: 1rem;
+  font-weight: 400;
 }
 input[type="submit"], input[type="reset"] {
   border-radius: 10px;
@@ -282,10 +312,9 @@ input[type="submit"], input[type="reset"] {
   color: #1D3557;
   transition-duration: 0.7s;
   text-decoration: none;
-  padding: 0.375rem 1.5rem;
+  padding: 0.25rem 1rem;
   text-align: center;
-  font-weight: 500;
-  font-size: 1rem;
+  font-weight: 400;
   margin-top: 1rem;
 }
 input[type="submit"] {
@@ -294,24 +323,18 @@ input[type="submit"] {
 input[type="reset"] {
   background-color: #f1faee;
 }
+.btn-danger {
+  border-radius: 10px !important;
+  transition-duration: 0.7s;
+  text-decoration: none;
+  padding: 0.25rem 1rem;
+  text-align: center;
+  font-weight: 400;
+}
 .top-20 {
   top: 12% !important;
   z-index: 1000;
 }
-
-/* Phone number input fields */
-#id_phone_0 {
-  width: 30%;
-}
-#id_phone_1 {
-  width: 60%;
-}
-#div_id_phone {
-  flex-direction: row !important;
-  display: flex !important;
-  gap: 5px;
-}
-
 
 /* Media Queries */
 @media screen and (max-width: 768px) {
@@ -323,11 +346,24 @@ input[type="reset"] {
     /* min-height: 350px; */
 }
 @media screen and (min-width: 576px) {
+  body, h4 {
+    font-size: 1rem;
+  }
   .logotype {
     padding-right: 30px;
   }
   .logo {
-    font-size: 2em;
+    font-size: 2rem;
+    margin-right: 1rem;
+    letter-spacing: normal;
+  }
+  .footer {
+    height: 60px; 
+    line-height: 60px; 
+  }
+  .footer i {
+    color: #1D3557;
+    font-size: 1rem;
   }
 }
 @media (min-width: 1200px) {

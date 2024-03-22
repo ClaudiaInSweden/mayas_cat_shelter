@@ -28,6 +28,6 @@
     <form method="post" action="{% url 'account_email' %}">
         {% csrf_token %}
         {{ form.as_p }}
-        <button name="action_add" type="submit">{% trans "Change Email" %}</button>
+        <button name="action_add" class="btn-card" type="submit">{% trans "Change Email" %}</button>
     </form>
 {% endblock content %}
