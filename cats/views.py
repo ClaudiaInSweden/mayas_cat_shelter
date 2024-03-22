@@ -68,8 +68,6 @@ def adoption(request):
             adoption = form.save()
             messages.success(request, 'Your adoption request has been submitted successfully!')
             return redirect('home')
-        # else:
-        #     messages.error(request, 'Your form could not be submitted. Please make sure the form is valid.')
             
     else:
         form = AdoptionForm()
@@ -86,7 +84,7 @@ def updateStatus(request, pk):
         form = StatusForm(request.POST, instance=adoption)
         if form.is_valid():
             adoption = form.save()
-            messages.info(request, 'The request was updated successfully!')
+            messages.info(request, 'The adoption request was updated successfully!')
             return redirect('adopters-list')
         else:
             messages.error(request, 'The form could not be updated. Please make sure the form is valid.')
