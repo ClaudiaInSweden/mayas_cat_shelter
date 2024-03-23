@@ -1,22 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 {% block content %}
 <main>
-<div class="container mt-5">
-    <div class="row mt-5">
-<div col-md-8 offset-md-2>
-
-    <form action="{% url 'delete-cat' cat.id %}" method="POST">
-        {% csrf_token %}
-        <p>Are you sure you want to delete {{ cat.name }}?</p>
-        <p></p>
-        <a href="{% url 'cats' %}" class="btn btn-secondary">Cancel</a>
-        <input type="submit" class="btn btn-secondary" value="Confirm"></input>
-
-    </form>
-</div>
-
-</div>
-</div>
+    <section class="pt-2">
+        <div class="container mt-5">
+            <div class="row mt-5">
+                <div col-md-8 offset-md-2>
+                    <form action="{% url 'delete-cat' cat.id %}" method="POST">
+                        {% csrf_token %}
+                        <p>Are you sure you want to delete {{ cat.name }}?</p>
+                        <p></p>
+                        <a href="{% url 'administration' %}" class="btn btn-cancel">Cancel</a>
+                        <input type="submit" class="btn-card" value="Confirm"></input>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
 {% endblock %}

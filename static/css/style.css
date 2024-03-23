@@ -102,15 +102,12 @@ h6 {
   margin-top: auto;
   position: sticky;
   width: 100%;
-  /* height: 60px;  */
-  /* line-height: 60px;  */
   background-color: #a8dadc;
   color: #1D3557;
-  font-size: .8rem;
+  font-size: .8rem !important;
 }
 .footer i {
   color: #1D3557;
-  /* font-size: 1.2rem; */
 }
 
 /* Home Page */
@@ -218,12 +215,11 @@ legend.custom-border {
   border-radius: 10px !important;
 }
 option {
-  /* min-height: 1.2em; */
   padding: 0px 0.7px 0.7px;
   font-size: 0.8rem;
   line-height: 0.8;
 }
-/* Phone number input fields */
+/* Keep phone number input fields in one row */
 #id_phone_0 {
   width: 33%;
 }
@@ -283,6 +279,7 @@ option {
 }
 .btn-common:hover,
 .btn-card:hover,
+.btn-cancel:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover {
   box-shadow: 0 5px 8px 0 rgb(29, 53, 87, 0.5);
@@ -293,6 +290,17 @@ input[type="reset"]:hover {
   border-radius: 10px;
   border: 2px solid #1D3557;
   background-color: #a8dadc;
+  color: #1D3557;
+  transition-duration: 0.7s;
+  text-decoration: none;
+  padding: 0.25rem 1rem;
+  text-align: center;
+  font-weight: 400;
+}
+.btn-cancel {
+  border-radius: 10px;
+  border: 2px solid #1D3557;
+  background-color: #f1faee;
   color: #1D3557;
   transition-duration: 0.7s;
   text-decoration: none;
