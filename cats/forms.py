@@ -22,7 +22,7 @@ class CatsForm(ModelForm):
         fields = '__all__'
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'born': forms.DateInput(attrs={'type': 'date', 'max': datetime.now().date()}),
+            'date_born': forms.TextInput(attrs={'class': 'form-control'}),
             'gender': forms.Select(attrs={'class': 'form-control'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 5}),
             'status': forms.Select(attrs={'class': 'form-control'}),

@@ -28,7 +28,7 @@ class Cats(models.Model):
 
 
     name = models.CharField(max_length=200, null=False, blank=False)
-    born = models.DateField(null=True, blank=True, default='Will be updated soon')
+    date_born = models.CharField(max_length=200, null=True, blank=True)
     gender = models.CharField(choices=GENDER, default='Male')
     description = models.TextField(null=True, blank=True, default='Will be updated soon')
     image = CloudinaryField('image', default='placeholder')

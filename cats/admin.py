@@ -9,7 +9,7 @@ class CatsAdmin(admin.ModelAdmin):
     list_display = (
         'pk',
         'name',
-        'born',
+        'date_born',
         'gender',
         'description',
         'image',

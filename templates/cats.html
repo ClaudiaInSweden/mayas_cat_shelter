@@ -27,7 +27,7 @@
               <img src="{{ cat.image.url }}" class="card-img-top" alt="...">
               {% endif %}
               <div class="card-text">
-                <p>Born: {{ cat.born }}</p>
+                <p>Born: {{ cat.date_born }}</p>
                 
                 <p class="{% if cat.gender == 'Female' %}female{% else %}male{% endif %}">
                   Gender: {{ cat.gender }}</p>
