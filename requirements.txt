@@ -24,6 +24,7 @@ psycopg2==2.9.9
 pydantic==2.6.3
 pydantic_core==2.16.3
 PyJWT==2.8.0
+python==3.9.17
 python3-openid==3.2.0
 requests-oauthlib==1.3.1
 sqlparse==0.4.4
