@@ -22,14 +22,11 @@ API_KEY = os.environ.get('API_KEY')
 API_SECRET = os.environ.get('API_SECRET')
 
 
-
 CLOUDINARY_CONFIG = {
     'CLOUD_NAME': 'dhciyvwx5',
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-claudiainsw-mayascatshe-m76kzh0xzrw.ws-eu108.gitpod.io',
-    'https://8000-claudiainsw-mayascatshe-m76kzh0xzrw.ws-eu109.gitpod.io',
     'https://8000-claudiainsw-mayascatshe-m76kzh0xzrw.ws-eu110.gitpod.io',
     'https://mayas-cat-shelter-9ef5d0b15271.herokuapp.com/',
 ]
@@ -37,7 +34,7 @@ CSRF_TRUSTED_ORIGINS = [
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['mayas-cat-shelter-9ef5d0b15271.herokuapp.com', '8000-claudiainsw-mayascatshe-m76kzh0xzrw.ws-eu108.gitpod.io', '8000-claudiainsw-mayascatshe-m76kzh0xzrw.ws-eu110.gitpod.io', '8000-claudiainsw-mayascatshe-m76kzh0xzrw.ws-eu109.gitpod.io']
+ALLOWED_HOSTS = ['mayas-cat-shelter-9ef5d0b15271.herokuapp.com', '8000-claudiainsw-mayascatshe-m76kzh0xzrw.ws-eu110.gitpod.io']
 
 
 # Application definition
@@ -94,7 +91,6 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
-
 
 
 MIDDLEWARE = [
@@ -161,7 +157,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -175,11 +170,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-PHONENUMBER_DEFAULT_FORMAT = 'E164'
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
@@ -194,9 +184,4 @@ CLOUDINARY_CONFIG = {
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-

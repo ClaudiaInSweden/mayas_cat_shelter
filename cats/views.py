@@ -23,7 +23,6 @@ def createCat(request):
         return redirect(reverse('home'))
         
     form = CatsForm()
-    form_class = CatsForm
 
     if request.method == 'POST':
         form = CatsForm(request.POST, request.FILES)
@@ -71,6 +70,7 @@ def deleteCat(request, pk):
     cat = Cats.objects.get(id=pk)
     if request.method == 'POST':
         cat.delete()
+        messages.success(request, 'The cat has been deleted!')
         return redirect('administration')
     context = {'cat': cat}
     return render(request, 'delete.html', context)

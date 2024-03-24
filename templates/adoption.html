@@ -53,10 +53,15 @@
 {% endblock content %}
 
 {% block scripts %}
-<script>
-    $("#id_cats").select2({
-        placeholder: "Please select ...",
-        maximumSelectionLength: "3",
+
+{% endblock %}
+{% block selectscript %}
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#id_cats').select2({
+        maximumSelectionLength: 3,
+        placeholder: 'Select up to 3 cats'
     });
+});
 </script>
 {% endblock %}

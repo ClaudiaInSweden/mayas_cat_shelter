@@ -4,7 +4,6 @@ from . models import Cats, Adoption
 from django import forms
 
 
-
 class CatsAdmin(admin.ModelAdmin):
     list_display = (
         'pk',
@@ -21,6 +20,5 @@ class CatsAdmin(admin.ModelAdmin):
     ordering = ('name',)
 
     
-
 admin.site.register(Cats, CatsAdmin)
 admin.site.register(Adoption)

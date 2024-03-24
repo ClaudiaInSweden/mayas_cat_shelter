@@ -70,4 +70,3 @@ class Adoption(models.Model):
 
     class Meta:
         ordering = ['-received']
-   

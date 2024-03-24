@@ -28,6 +28,10 @@ class CatsForm(ModelForm):
 
 
 class AdoptionForm(ModelForm):
+    """
+    Take cleaned data from birthday field and calculate 19 years back. 
+    Raise error if person is not at least 19 years old.
+    """
     def clean_date_of_birth(self):
        data = self.cleaned_data['date_of_birth']
        age = (date.today() - data).days / 365
@@ -56,26 +60,13 @@ class AdoptionForm(ModelForm):
             self.fields[field].label = False
 
 
-    # def clean_renewal_date(self):
-    #     data = self.cleaned_data['date_of_birth']
-
-    #     # Check if a date is not in the past.
-    #     if data < datetime.date.today() + datetime.timedelta(years=19):
-    #         raise ValidationError(_('Minimum age for adopting a cat is 19!'))
-
-    #     # Check if a date is in the allowed range (+4 weeks from today).
-    #     if data > datetime.date.today() + datetime.timedelta(years=70):
-    #         raise ValidationError(_('Maximum age for adopting a cat is 70!'))
-
-    #     # Remember to always return the cleaned data.
-    #     return data
-
-
 class StatusForm(ModelForm):
     class Meta:
         model = Adoption
         fields = ('full_name', 'email', 'phone', 'date_of_birth', 'about_you', 'cats', 'status', 'comments',)
-
+        """
+        Load input data from adoption request but make them none-editable
+        """
         widgets = {
             'full_name': forms.TextInput(attrs={'class': 'form-control', 'readonly': 'readonly'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'readonly': 'readonly'}),
@@ -91,6 +82,6 @@ class StatusForm(ModelForm):
         Set autofocus on full_name field and remove auto-labels
         """
         super().__init__(*args, **kwargs)
-        self.fields['status'].widget.attrs['autofocus'] = True
+        # self.fields['status'].widget.attrs['autofocus'] = True
         for field in self.fields:
             self.fields[field].label = False

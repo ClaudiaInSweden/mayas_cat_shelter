@@ -6,7 +6,6 @@ html {
   --color: #1D3557;
 }
 body {
-  /* margin-bottom: 60px;  */
   font-size: 0.8rem;
   font-family: "Prompt", sans-serif !important;
   color: #1D3557 !important;
@@ -18,7 +17,6 @@ body {
   margin: 0;
   box-sizing: inherit;
 }
-
 .prompt-regular {
   font-family: "Prompt", sans-serif;
   font-weight: 400;
@@ -99,6 +97,7 @@ h6 {
   font-size: 1rem;
 }
 
+
 /* Footer  */
 .footer {
   margin-top: auto;
@@ -111,6 +110,7 @@ h6 {
 .footer i {
   color: #1D3557;
 }
+
 
 /* Home Page */
 .carousel-item {
@@ -135,6 +135,7 @@ h6 {
 .carousel-caption h5:hover {
   font-size: 2.5rem;
 }
+
 
 /* Cats page */
 .card-body {
@@ -162,6 +163,7 @@ td {
   padding-right: 40px;
 }
 
+
 /* Login/Logout page */
 .auth-container {
   position: absolute;
@@ -169,6 +171,7 @@ td {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 
 /* Adoption form */
 fieldset, legend {
@@ -198,8 +201,15 @@ legend.custom-border {
   font-family: 'Prompt', sans-serif;
   font-weight: 400;
 }
+.select2-container--open {
+  height: fit-content;
+}
+.select2-results__message {
+  color: #e63946;
+}
 .select2-container .select2-search--inline .select2-search__field::placeholder {
   vertical-align: middle;
+  font-size: 0.8rem;
 }
 .select2-results__options {
   font-family: 'Prompt', sans-serif;
@@ -230,7 +240,8 @@ option {
   font-size: 0.8rem;
 }
 
-/* Adoption process page */
+
+/* Adoption rules and process page */
 /* Replace list bullets with paw icon */
 .pawlist {
 	position: relative;
@@ -264,6 +275,8 @@ option {
   background-color: transparent;
   border: none;
 }
+
+
 /* Buttons */
 .btn-common {
   border-radius: 10px;
@@ -355,15 +368,24 @@ input[type="reset"] {
     color: #1D3557;
     font-size: 1rem;
   }
+  .form-control {
+    font-size: 1rem !important;
+  }
+  .select2-search__field::placeholder {
+    font-size: 1rem;
+  }
 }
+
+
 @media screen and (max-width: 768px) {
   .logotype {
     display: none;
   }
   .carousel-item {
     height: 45vh;
-    /* min-height: 350px; */
 }
+
+
 @media (min-width: 768px) {
   .animate {
     animation-duration: 0.3s;
@@ -372,6 +394,8 @@ input[type="reset"] {
     -webkit-animation-fill-mode: both;
   }
 }
+
+
 @keyframes slideIn {
   0% {
     transform: translateY(1rem);
@@ -405,6 +429,8 @@ input[type="reset"] {
   animation-name: slideIn;
 }
 }
+
+
 @media (min-width: 1200px) {
   .container {
     width: 1000px;
