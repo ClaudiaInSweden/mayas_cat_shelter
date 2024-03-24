@@ -24,25 +24,26 @@
             </div>
             <div class="card card-body">
                 <div class="table-responsive-md">
-                <table class="table">
-                    <tr>
-                        <th>Cat Name</th>
-                        <th>Gender</th>
-                        <th>Adoption status</th>
-                        <th>Publication status</th>
-                    </tr>
-                    {% for cat in catlist %}
-                    <tr>
-                        <td>{{ cat.name }}</td>
-                        <td>{{ cat.gender }}</td>
-                        <td>{{ cat.adopt_status }}</td>
-                        <td>{{ cat.status }}</td>
-                        <td><a href="{% url 'update-cat' cat.id %}" class="btn-card">Edit</a></td>
-                        <td><a href="{% url 'delete-cat' cat.id %}" class="btn-danger btn-common text-white">Delete</a></td>
-                    </tr>
-                    {% endfor %}
-                </table>
-            </div>
+                    <table class="table">
+                        <tr>
+                            <th>Cat Name</th>
+                            <th>Gender</th>
+                            <th>Adoption status</th>
+                            <th>Publication status</th>
+                        </tr>
+                        {% for cat in catlist %}
+                        <tr>
+                            <td>{{ cat.name }}</td>
+                            <td>{{ cat.gender }}</td>
+                            <td>{{ cat.adopt_status }}</td>
+                            <td>{{ cat.status }}</td>
+                            <td><a href="{% url 'update-cat' cat.id %}" class="btn-card">Edit</a></td>
+                            <td><a href="{% url 'delete-cat' cat.id %}"
+                                    class="btn-danger btn-common text-white">Delete</a></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
             </div>
         </div>
         </div>

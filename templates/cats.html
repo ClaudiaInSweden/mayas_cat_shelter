@@ -4,54 +4,52 @@
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 
-
 {% block content %}
 <main>
-<section class="py-2">
-<div class="container mt-3">
-  <h1 class="fw-light">Cats available for adoption</h1>
-</div>
-<div class="container mt-3">
-  <div class="card-deck">
-    <div class="row gy-4">
-      {% for cat in cats %}
-      <div class="col-sm-12 col-md-6 col-lg-4">
-        <div class="col">
-          <div class="card h-100">
-            <div class="card-body">
-              <h3 class="{% if cat.gender == 'Female' %}female{% else %}male{% endif %} card-title cat_name text-center">
-                {{ cat.name | upper }}</h3>
-              {% if "placeholder" in cat.image.url %}
-              <img src="https://res.cloudinary.com/dhciyvwx5/image/upload/v1703268464/default.png" class="card-img-top" alt="...">
-              {% else %}
-              <img src="{{ cat.image.url }}" class="card-img-top" alt="...">
-              {% endif %}
-              <div class="card-text">
-                <p>Born: {{ cat.date_born }}</p>
-                
-                <p class="{% if cat.gender == 'Female' %}female{% else %}male{% endif %}">
-                  Gender: {{ cat.gender }}</p>
-                
-                <p>
-                  <h6 class="card-title">Background & Temperament:</h6>
-                </p>
-                <p>{{ cat.description }}</p>
-                <p>{{ cat.adopt_status }}</p>
-              </div>
-              <div class="card-footer text-center">
-                <a class="btn-card px-3 mx-auto btn-common" href="{% url 'adoption' %}">Adopt</a>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</div>
-</section>
-
+	<section class="py-2">
+		<div class="container mt-3">
+			<h1 class="fw-light">Cats available for adoption</h1>
+		</div>
+		<div class="container mt-3">
+			<div class="card-deck">
+				<div class="row gy-4">
+					{% for cat in cats %}
+					<div class="col-sm-12 col-md-6 col-lg-4">
+						<div class="col">
+							<div class="card h-100">
+								<div class="card-body">
+									<h3
+										class="{% if cat.gender == 'Female' %}female{% else %}male{% endif %} card-title cat_name text-center">
+										{{ cat.name | upper }}</h3>
+									{% if "placeholder" in cat.image.url %}
+									<img src="https://res.cloudinary.com/dhciyvwx5/image/upload/v1703268464/default.png"
+										class="card-img-top" alt="...">
+									{% else %}
+									<img src="{{ cat.image.url }}" class="card-img-top" alt="...">
+									{% endif %}
+									<div class="card-text">
+										<p>Born: {{ cat.date_born }}</p>
+										<p class="{% if cat.gender == 'Female' %}female{% else %}male{% endif %}">
+											Gender: {{ cat.gender }}</p>
+										<p>
+											<h6 class="card-title">Background & Temperament:</h6>
+										</p>
+										<p>{{ cat.description }}</p>
+										<p>{{ cat.adopt_status }}</p>
+									</div>
+									<div class="card-footer text-center">
+										<a class="btn-card px-3 mx-auto btn-common"
+											href="{% url 'adoption' %}">Adopt</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</section>
 </main>
 
 {% endblock %}

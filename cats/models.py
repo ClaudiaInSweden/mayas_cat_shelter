@@ -56,7 +56,7 @@ class Adoption(models.Model):
 
     full_name = models.CharField(max_length=200, null=False, blank=False)
     email = models.EmailField(null=False, blank=False)
-    phone = PhoneNumberField(null=False, blank=False, default='Phone number *')
+    phone = PhoneNumberField(null=False, blank=False)
     date_of_birth = models.DateField(null=False, blank=False)
     about_you = models.TextField(null=False, blank=False)
     cats = models.ManyToManyField(Cats)

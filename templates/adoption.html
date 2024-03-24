@@ -20,20 +20,13 @@
                             {% csrf_token %}
                             <fieldset class="custom-border">
                                 <legend class="custom-border">
-                                    <h5>Your Details: </h5> 
+                                    <h5>Your Details: </h5>
                                 </legend>
                                 {{ form.full_name | as_crispy_field }}
                                 {{ form.email | as_crispy_field }}
-                                <div class="form-group one_row d-inline">
-                                <div class="row align-items-center">
-                                        <div class="input-group">
-                                            <span class="d-inline">
-                                            {{ form.phone | as_crispy_field }}
-                                        </span>
-                                    </div>
-                                </div>   
-                            </div>
-                                {{ form.date_of_birth | as_crispy_field }}
+                                {{ form.phone | as_crispy_field }}
+                                <div class="form-control green-bg p-0">Date of birth *
+                                    {{ form.date_of_birth | as_crispy_field }}</div>
                                 {{ form.about_you | as_crispy_field }}
                             </fieldset>
                     </div>
@@ -50,14 +43,12 @@
                 </div>
                 <div class="col-12 col-lg-4">
                     <span><input type="submit" value="Submit"></span>
-                    <span><input type="reset" value="Reset"></span>
                 </div>
                 </form>
             </div>
         </div>
     </section>
 </main>
-
 
 {% endblock content %}
 

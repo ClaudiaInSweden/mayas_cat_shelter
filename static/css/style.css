@@ -18,6 +18,7 @@ body {
   margin: 0;
   box-sizing: inherit;
 }
+
 .prompt-regular {
   font-family: "Prompt", sans-serif;
   font-weight: 400;
@@ -44,6 +45,7 @@ h6 {
 .linkcolor {
   color: #1D3557 !important;
 }
+
 
 /* Navigation */
 .logo {
@@ -91,7 +93,7 @@ h6 {
   top: 100px;
   text-align: center;
   z-index: 9999;
-  /* background-color: #f1faee; */
+  background-color: #f1faee;
   border: 2px solid #1D3557;
   border-radius: 10px;
   font-size: 1rem;
@@ -219,17 +221,13 @@ option {
   font-size: 0.8rem;
   line-height: 0.8;
 }
-/* Keep phone number input fields in one row */
-#id_phone_0 {
-  width: 33%;
+.green-bg {
+  background-color: #f1faee;
+  border: none;
 }
-#id_phone_1 {
-  width: 60%;
-}
-#div_id_phone {
-  flex-direction: row !important;
-  display: flex !important;
-  gap: 5px;
+.invalid-feedback > strong {
+  font-weight: 400;
+  font-size: 0.8rem;
 }
 
 /* Adoption process page */

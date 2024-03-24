@@ -10,48 +10,47 @@
 <title>{% block head_title %}{% endblock head_title %}</title>
 {% block extra_head %}
 {% endblock extra_head %}
-</head>
+
 <body>
-<main>
-  {% if messages %}
-  <ul class="messages">
-      {% for message in messages %}
-      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
-          {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
-          {{ message }}
-      </li>
-      {% endfor %}
-  </ul>
-  {% endif %}
-<!-- Login Form -->
-<section class="py-5">
-  <div class="container mt-3">
-    <div class="row">
-      <div class="col-md-8 mt-5 offset-md-2">
-        {% block body %}
-        {% if messages %}
-        <div>
-          <strong>{% trans "Messages:" %}</strong>
-          <ul>
-            {% for message in messages %}
-            <li>{{message}}</li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-    </div>
-    {% endif %}
-  </div>
-</section>
-  {% block content %}
-  <section class="py-5">
-    <div class="container mt-3">
-    </div>
-  </section>
-  {% endblock content %}
-  {% endblock body %}
-  {% block extra_body %}
-  {% endblock extra_body %}
-</main>
-  </body>
-</html>
+	<main>
+		{% if messages %}
+		<ul class="messages">
+			{% for message in messages %}
+			<li{% if message.tags %} class="{{ message.tags }}" {% endif %}>
+				{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+				{{ message }}
+				</li>
+				{% endfor %}
+		</ul>
+		{% endif %}
+		<!-- Login Form -->
+		<section class="py-5">
+			<div class="container mt-3">
+				<div class="row">
+					<div class="col-md-8 mt-5 offset-md-2">
+						{% block body %}
+						{% if messages %}
+						<div>
+							<strong>{% trans "Messages:" %}</strong>
+							<ul>
+								{% for message in messages %}
+								<li>{{message}}</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				</div>
+				{% endif %}
+			</div>
+		</section>
+		{% block content %}
+		<section class="py-5">
+			<div class="container mt-3">
+			</div>
+		</section>
+		{% endblock content %}
+		{% endblock body %}
+		{% block extra_body %}
+		{% endblock extra_body %}
+	</main>
+</body>

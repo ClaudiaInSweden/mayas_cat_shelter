@@ -4,6 +4,8 @@ from django import forms
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from cloudinary.forms import cl_init_js_callbacks
+
+from django.contrib.auth.decorators import login_required
 from .models import Cats, Adoption
 from .forms import CatsForm, AdoptionForm, StatusForm
 
@@ -14,7 +16,12 @@ def cats(request):
     return render(request, 'cats.html', context)
 
 
+@login_required
 def createCat(request):
+    if not request.user.is_superuser:
+        messages.error(request, 'You are not authorized to perform this task!')
+        return redirect(reverse('home'))
+        
     form = CatsForm()
     form_class = CatsForm
 
@@ -32,7 +39,12 @@ def createCat(request):
     return render(request, 'admin_cat.html', context)
 
 
+@login_required
 def updateCat(request, pk):
+    if not request.user.is_superuser:
+        messages.error(request, 'You are not authorized to perform this task!')
+        return redirect(reverse('home'))
+
     cat = get_object_or_404(Cats, id=pk)
     form = CatsForm(instance=cat)
 
@@ -50,7 +62,12 @@ def updateCat(request, pk):
     return render(request, 'admin_cat.html', context)
 
 
+@login_required
 def deleteCat(request, pk):
+    if not request.user.is_superuser:
+        messages.error(request, 'You are not authorized to perform this task!')
+        return redirect(reverse('home'))
+
     cat = Cats.objects.get(id=pk)
     if request.method == 'POST':
         cat.delete()
@@ -76,7 +93,12 @@ def adoption(request):
     return render(request, 'adoption.html', context)
 
 
+@login_required
 def updateStatus(request, pk):
+    if not request.user.is_superuser:
+        messages.error(request, 'You are not authorized to perform this task!')
+        return redirect(reverse('home'))
+
     adoption = get_object_or_404(Adoption, id=pk)
     form = StatusForm(instance=adoption)
 
@@ -102,13 +124,23 @@ def rules(request):
     return render(request, 'adoption_rules.html')
 
 
+@login_required
 def administration(request):
+    if not request.user.is_superuser:
+        messages.error(request, 'You are not authorized to perform this task!')
+        return redirect(reverse('home'))
+
     catlist = Cats.objects.all()
     context = {'catlist': catlist}
     return render(request, 'administration.html', context)
 
 
+@login_required
 def adoptersList(request):
+    if not request.user.is_superuser:
+        messages.error(request, 'You are not authorized to perform this task!')
+        return redirect(reverse('home'))
+
     adoptionlist = Adoption.objects.all()
     context = {'adoptionlist': adoptionlist}
     return render(request, 'adoption_request.html', context)
