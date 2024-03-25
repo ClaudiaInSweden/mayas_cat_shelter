@@ -19,6 +19,6 @@ class CatsAdmin(admin.ModelAdmin):
 
     ordering = ('name',)
 
-    
+
 admin.site.register(Cats, CatsAdmin)
 admin.site.register(Adoption)

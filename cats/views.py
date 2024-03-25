@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
-from django.views.decorators.csrf import csrf_protect 
+from django.views.decorators.csrf import csrf_protect
 from django import forms
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
@@ -21,17 +21,19 @@ def createCat(request):
     if not request.user.is_superuser:
         messages.error(request, 'You are not authorized to perform this task!')
         return redirect(reverse('home'))
-        
+
     form = CatsForm()
 
     if request.method == 'POST':
         form = CatsForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, 'The cat has been added to the list of cats!')
+            messages.success(request, 'The cat has been added to the ' +
+                                      'list of cats!')
             return redirect('administration')
         else:
-            messages.error(request, 'Your form could not be submitted. Please make sure the form is valid.')
+            messages.error(request, 'Your form could not be submitted. ' +
+                                    'Please make sure the form is valid.')
             form = createCat()
 
     context = {'form': form}
@@ -54,7 +56,8 @@ def updateCat(request, pk):
             messages.info(request, 'The cat was updated successfully!')
             return redirect('administration')
         else:
-            messages.error(request, 'Your form could not be submitted. Please make sure the form is valid.')
+            messages.error(request, 'Your form could not be submitted. ' +
+                                    'Please make sure the form is valid.')
             form = updateCat(instance=cat)
 
     context = {'form': form}
@@ -78,14 +81,15 @@ def deleteCat(request, pk):
 
 def adoption(request):
     form = AdoptionForm()
-    
+
     if request.method == 'POST':
         form = AdoptionForm(request.POST)
         if form.is_valid():
             adoption = form.save()
-            messages.success(request, 'Your adoption request has been submitted successfully!')
+            messages.success(request, 'Your adoption request has been ' +
+                                      'submitted successfully!')
             return redirect('home')
-            
+
     else:
         form = AdoptionForm()
 
@@ -106,10 +110,12 @@ def updateStatus(request, pk):
         form = StatusForm(request.POST, instance=adoption)
         if form.is_valid():
             adoption = form.save()
-            messages.info(request, 'The adoption request was updated successfully!')
+            messages.info(request, 'The adoption request was updated ' +
+                                   'successfully!')
             return redirect('adopters-list')
         else:
-            messages.error(request, 'The form could not be updated. Please make sure the form is valid.')
+            messages.error(request, 'The form could not be updated. ' +
+                                    'Please make sure the form is valid.')
             form = StatusForm(instance=adoption)
 
     context = {'form': form}

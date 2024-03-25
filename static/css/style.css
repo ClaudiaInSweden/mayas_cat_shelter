@@ -54,7 +54,7 @@ h6 {
   background-color: #a8dadc;
   color: #1D3557;
   margin-right: 0;
-  letter-spacing: -0.9;
+  letter-spacing: -0.9px;
 }
 .bg-light {
   background-color: #a8dadc !important;
@@ -81,7 +81,7 @@ h6 {
   border: none;
 }
 .nav-listtext {
-  font-size: o.9rem !important;
+  font-size: 0.9rem !important;
 }
 
 
@@ -343,6 +343,12 @@ input[type="reset"] {
   padding: 0.25rem 1rem;
   text-align: center;
   font-weight: 400;
+}
+
+
+/* Cat Administration Form */
+.input-group-text {
+  font-size: 1rem;
 }
 
 

@@ -34,7 +34,8 @@ CSRF_TRUSTED_ORIGINS = [
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['mayas-cat-shelter-9ef5d0b15271.herokuapp.com', '8000-claudiainsw-mayascatshe-m76kzh0xzrw.ws-eu110.gitpod.io']
+ALLOWED_HOSTS = ['mayas-cat-shelter-9ef5d0b15271.herokuapp.com',
+                '8000-claudiainsw-mayascatshe-m76kzh0xzrw.ws-eu110.gitpod.io']
 
 
 # Application definition

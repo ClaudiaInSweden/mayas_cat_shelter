@@ -28,14 +28,14 @@
 									<img src="{{ cat.image.url }}" class="card-img-top" alt="...">
 									{% endif %}
 									<div class="card-text">
-										<p>Born: {{ cat.date_born }}</p>
-										<p class="{% if cat.gender == 'Female' %}female{% else %}male{% endif %}">
-											Gender: {{ cat.gender }}</p>
-										<p>
+										<div>Born: {{ cat.date_born }}</div>
+										<div class="{% if cat.gender == 'Female' %}female{% else %}male{% endif %}">
+											Gender: {{ cat.gender }}</div>
+										<div class="py-2">
 											<h6 class="card-title">Background & Temperament:</h6>
-										</p>
-										<p>{{ cat.description }}</p>
-										<p>{{ cat.adopt_status }}</p>
+										</div>
+										<div>{{ cat.description }}</div>
+										<div class="py-3">{{ cat.adopt_status }}</div>
 									</div>
 									<div class="card-footer text-center">
 										<a class="btn-card px-3 mx-auto btn-common"
