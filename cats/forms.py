@@ -29,6 +29,9 @@ class CatsForm(ModelForm):
 
 
 class AdoptionForm(ModelForm):
+    cats = forms.ModelMultipleChoiceField(
+        queryset=Cats.objects.filter(status='Published')
+    )
     """
     Take cleaned data from birthday field and calculate 19 years back.
     Raise error if person is not at least 19 years old.
