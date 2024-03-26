@@ -7,7 +7,7 @@ By Claudia Bergstaller
 
 ### Project Description
 
-[Mayas Cat Shelter](https://mayas-cat-shelter-9ef5d0b15271.herokuapp.com/) is a fictional cat shelter in the city of Gävle, Sweden. The structure, set-up as well as the background stories of the cats are losely based on a real local cat shelter, Gefle Katthem. 
+[Mayas Cat Shelter](https://mayas-cat-shelter-9ef5d0b15271.herokuapp.com/) is a fictional cat shelter in the city of Gävle, Sweden. The structure, set-up as well as the background stories of the cats are losely based on a real local cat shelter, [Gefle Katthem](https://www.geflekatthem.se/). 
 
 ![Mayas Cat Shelter](static/readme-images/screenshots-pages/amiresponsive1.png)
 ![Mayas Cat Shelter](static/readme-images/screenshots-pages/amiresponsive2.png)
@@ -16,7 +16,7 @@ Each page includes a responsive navigation bar as well as a footer with copyrigh
 The start page includes an image carousel with two images which link to a page with available cats respective a page with information about the adoption process. 
 From both pages a link to an adoption form is available for the user. 
 
-Full CRUD functionality is reserved for the administrator role who can log-in/log-out in the navigation bar. When a user is logged in, an additional dropdown menu link is available to administrate cats (Create, Read, Update, Delete) as well as the incoming adoptions requests. However, the data in these requests is not editable but the user/administrator can change the status log and add comments. 
+Full CRUD functionality is reserved for the administrator role who can log-in/log-out in the navigation bar. When a user is logged in, an additional dropdown menu link is available to administrate cats (Create, Read, Update, Delete) as well as the incoming adoptions requests. However, the data in these adoption requests is not editable but the user/administrator can change the status log and add comments. 
 More details can be found in the respective Features section.  
 
 
@@ -45,22 +45,22 @@ I wanted to add a logotype representing a cat and found a nice image that I used
 
 Wireframes were created for desktop, iPad and smartphones using Balsamiq.
 
-Home Page
+**Home Page**
 ![Home](static/readme-images/wireframes/home.png)
 
-Our Cats
+**Our Cats**
 ![Cats](static/readme-images/wireframes/cats.png)
 
-Adoption
+**Adoption**
 ![Adoption](static/readme-images/wireframes/adoption.png)
 
-Adoption Form
+**Adoption Form**
 ![Adoption Form](static/readme-images/wireframes/adoption-form.png)
 
-Administration Cats
+**Administration Cats**
 ![Administration Cats](static/readme-images/wireframes/administration-cats.png)
 
-Administration Adoption Requests
+**Administration Adoption Requests**
 ![Administration Adoption](static/readme-images/wireframes/administration-adoption.png)
 
 
@@ -68,25 +68,32 @@ Administration Adoption Requests
 ## Agile 
 
 Agile Methodology was used during the project.
-User stories were created at project start, and prioritized according to MOSCOW way of working. 
-Github was used to document the user stories by using the build in Issues resp. project functionality.
+User stories were created at project start, and prioritized according the MOSCOW way of working. 
+
+Github was used to document the user stories by using the build-in Issues resp. project functionality.
 For each user story a list of tasks and acceptance criterias was created.
 Working progress was illustrated in a canban board.
 All user stories labelled "Must have" have been closed. 
 Open user stories have been collected in the backlog section. 
 
+
 The project is open for public access and can be visited here.
-![Agile Project](https://github.com/ClaudiaInSweden/mayas_cat_shelter/projects)
+[Agile Project](https://github.com/ClaudiaInSweden/mayas_cat_shelter/projects)
+
 ![Project User Stories](static/readme-images/others/user-stories.png)
 
 
 <hr>
 
+
 ## Features
 
 ### Navigation
 
-The responsive navigation bar on top of the page includes links to the Home Page, Our Cats, Adoption, Staff Login. When a user is logged in, a Logout link is visible instead as well as a dropdown link with two sections, one to the cats administration page and the other one to a list of all adoption requests.
+The responsive navigation bar includes links to the Home Page, Our Cats, Adoption, Staff Login. 
+
+When a user is logged in, a Logout link is visible instead as well as a dropdown link with two sections, one to the cats administration page and the other one to a list of all adoption requests.
+
 On smaller screens the links are replaced with a clickable toggle icon.
 
 ![Navbar](static/readme-images/screenshots-pages/navbar.png)
@@ -112,7 +119,7 @@ The Home page is the starting point for users. A carousel shows two alternating 
 
 On this page all available cats are listed with:
 - Name (colored in red (female) or blue (male))
-- Approx. birth date (originally I used a date field but realized in a later stage that cat shelters resp. vets often only can guess when a homeless cat is born so I updated this field to a textfield)
+- Approx. birth date (originally I used a date field but realized in a later stage that cat shelters often only can guess when a homeless cat was born so I updated this field to a textfield)
 - Gender (depending on gender, displayed in red (female) or blue (male))
 - Background and Temperament
 - Adoption status (when a cat is already adopted, the "Adopt" button is replaced with just some info text accordingly)
@@ -157,7 +164,8 @@ On top of the page, a "Add a cat" button links to the add cat form. To populate 
 
 When the staff member clicks on the edit button in the cat table, the same form will be opened, but with the cat data pre-populated. 
 
-When the staff member clicks on the delete button in the cat table, a confirmation page will be opened, asking for a confirmation to delete the cat. When the user confirms deleting, the cat will be deleted and the user redirected to the cat administration page. 
+When the staff member clicks on the delete button in the cat table, a confirmation page will be opened, asking for a confirmation to delete the cat. When the user confirms deleting, the cat's data will be deleted and the user redirected to the cat administration page. 
+
 If the user clicks on Cancel, the user will be redirected back to the cat administration page. 
 
 ![Admin Cats](static/readme-images/screenshots-pages/admin_cats.png)
@@ -165,7 +173,7 @@ If the user clicks on Cancel, the user will be redirected back to the cat admini
 
 #### Administration Adoption requests
 
-The staff member will see all adoption requests in card form, sorted by date. The idea with this page is that the staff can see at one glance all information about an adopter. 
+The staff member will see all adoption requests in card form, sorted by date. The idea with this page is that the staff can see at one glance all information about an adopter without the need to use the Django Admin Panel. 
 
 A staff member can also edit the status of the adoption request, following the steps outlined on the adoption page, and add comments. 
 Personal data of the adopter is not editable in this view! 
@@ -184,6 +192,7 @@ When a staff member is logged in, the "Staff Login" link will change to "Logout"
 Non-staff users who try to access one of the administrator pages (add-cat, update-cat, delete-cat, update-status), will be redirected to the Login page.
 
 
+
 ## Future Features
 
 There are many possibilities for further improvement to the website. 
@@ -192,8 +201,9 @@ Some suggestions and ideas are:
 - When the number of adopted cats increases, a separate page with these cats listed could be nice.
 - Create a contact us page
 - Create a page with information about how people can support the cat shelter, e.g. donations (money, food, cat trees, etc.) but also volunteer services.
-- For administrator could the adoption request page developed further to include the complete adoption process with its several steps in digital form.
+- For administrator could the adoption request page be developed further to include the complete adoption process with its several steps in digital form.
 - A newsletter functionality could be included to keep supporters informed and so on.
+
 
 
 ## Information Architecture
@@ -202,6 +212,7 @@ Some suggestions and ideas are:
 
 
 ![ERD](static/readme-images/others/PP4_ERD_drawio.png)
+
 
 
 ### Data Models
@@ -264,24 +275,26 @@ User can read non-restricted content
 - CSS
 - Python
 
+
 ### Technologies and programs
 - IDE: Gitpod/VS Code
 - Repository: GitHub
 - Database: ElephantSQL
 - Deployment: Heroku
 
+
 ### Software and frameworks
 
-![Django 4.2](https://docs.djangoproject.com/en/4.2/)
-![Bootstrap 5.1.3](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
-![Fontawsome Icons](https://fontawesome.com/icons)
-![Favicon](https://favicon.io/)
-![Google Fonts](https://fonts.google.com/)
-![Color palette](https://coolors.co/palettes/trending)
-![Birme](https://www.birme.net/)
-![Snagit Editor](https://www.techsmith.com/screen-capture.html)
-![Balsamiq](https://balsamiq.com/)
-![Draw.io](https://github.com/jgraph/drawio/wiki)
+[Django 4.2](https://docs.djangoproject.com/en/4.2/)
+[Bootstrap 5.1.3](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
+[Fontawsome Icons](https://fontawesome.com/icons)
+[Favicon](https://favicon.io/)
+[Google Fonts](https://fonts.google.com/)
+[Color palette](https://coolors.co/palettes/trending)
+[Birme](https://www.birme.net/)
+[Snagit Editor](https://www.techsmith.com/screen-capture.html)
+[Balsamiq](https://balsamiq.com/)
+[Draw.io](https://github.com/jgraph/drawio/wiki)
 
 
 
@@ -300,28 +313,28 @@ Details for each page can be found by clicking the expand button.
 
 <summary>HTML Validation </summary>
 
-Homepage
+**Homepage**
 ![Home Page](static/readme-images/validation-html/index.png)
 
-Our Cats
+**Our Cats**
 ![Our Cats](static/readme-images/validation-html/cats.png)
 
-Adoption
+**Adoption**
 ![Adoption](static/readme-images/validation-html/adoption.png)
 
-Adoption Form
+**Adoption Form**
 ![Adoption Form](static/readme-images/validation-html/adoption_form.png)
 
-Administration Cats
+**Administration Cats**
 ![Admin Cats](static/readme-images/validation-html/cats_administration.png)
 
-Administration Adoption Requests
+**Administration Adoption Requests**
 ![Admin Adoption](static/readme-images/validation-html/adoption_administration.png)
 
-Login
+**Login**
 ![Login](static/readme-images/validation-html/login.png)
 
-Logout
+**Logout**
 ![Logout](static/readme-images/validation-html/logout.png)
 
 </details>
@@ -345,28 +358,28 @@ Details for each page can be found by clicking the expand button.
 
 <summary>Lighthouse Reports</summary>
 
-Homepage
+**Homepage**
 ![Home](static/readme-images/validation-performance/index.png)
 
-Our Cats
+**Our Cats**
 ![Our Cats](static/readme-images/validation-performance/cats.png)
 
-Adoption
+**Adoption**
 ![Adoption](static/readme-images/validation-performance/adoption.png)
 
-Adoption Form
+**Adoption Form**
 ![Adoption Form](static/readme-images/validation-performance/adoption_form.png)
 
-Administration Cats
+**Administration Cats**
 ![Admin Cats](static/readme-images/validation-performance/cats_administration.png)
 
-Administration Adoption Requests
+**Administration Adoption Requests**
 ![Admin Adoptions](static/readme-images/validation-performance/adoption_administration.png)
 
-Login
+**Login**
 ![Login](static/readme-images/validation-performance/login.png)
 
-Logout
+**Logout**
 ![Logout](static/readme-images/validation-performance/logout.png)
 
 </details>
@@ -381,19 +394,19 @@ Details for each part can be found by clicking the expand button.
 
 <summary>Python Linter </summary>
 
-model.py
+**model.py**
 ![models.py](static/readme-images/validation-python/models_py.png)
 
-forms.py
+**forms.py**
 ![forms.py](static/readme-images/validation-python/forms_py.png)
 
-admin.py
+**admin.py**
 ![admin.py](static/readme-images/validation-python/admin_py.png)
 
-urls.py
+**urls.py**
 ![urls.py](static/readme-images/validation-python/urls_py.png)
 
-views.py
+**views.py**
 ![views.py](static/readme-images/validation-python/views_py.png)
 
 </details>
@@ -425,35 +438,36 @@ A Repository was created in Github, and apps and templates were developed using 
 At an early stage a database on ElephantSQL was connected to the project as well als Cloudinary to store static files.
 The following packages were installed in VS Code and added to the requirements.txt:
 
-annotated-types==0.6.0
-asgiref==3.7.2
-cloudinary==1.37.0
-crispy-bootstrap5==2023.10
-dj-database-url==0.5.0
-dj3-cloudinary-storage==0.0.6
-Django==4.2
-django-allauth==0.57.0
-django-bootstrap-datepicker-plus==5.0.5
-django-bootstrap-v5==1.0.11
-django-cloudinary-storage==0.3.0
-django-crispy-forms==2.1
-django-jquery==3.1.0
-django-phone-field==1.8.1
-django-phonenumber-field==7.3.0
-django-resized==1.0.2
-django-summernote==0.8.20.0
-gunicorn==21.2.0
-oauthlib==3.2.2
-phonenumbers==8.13.27
-phonenumberslite==8.13.32
-Pillow==10.1.0
-psycopg2==2.9.9
-pydantic==2.6.3
-pydantic_core==2.16.3
-PyJWT==2.8.0
-python3-openid==3.2.0
-requests-oauthlib==1.3.1
-sqlparse==0.4.4
+- annotated-types==0.6.0
+- asgiref==3.7.2
+- cloudinary==1.37.0
+- crispy-bootstrap5==2023.10
+- dj-database-url==0.5.0
+- dj3-cloudinary-storage==0.0.6
+- Django==4.2
+- django-allauth==0.57.0
+- django-bootstrap-datepicker-plus==5.0.5
+- django-bootstrap-v5==1.0.11
+- django-cloudinary-storage==0.3.0
+- django-crispy-forms==2.1
+- django-jquery==3.1.0
+- django-phone-field==1.8.1
+- django-phonenumber-field==7.3.0
+- django-resized==1.0.2
+- django-summernote==0.8.20.0
+- gunicorn==21.2.0
+- oauthlib==3.2.2
+- phonenumbers==8.13.27
+- phonenumberslite==8.13.32
+- Pillow==10.1.0
+- psycopg2==2.9.9
+- pydantic==2.6.3
+- pydantic_core==2.16.3
+- PyJWT==2.8.0
+- python3-openid==3.2.0
+- requests-oauthlib==1.3.1
+- sqlparse==0.4.4
+
 
 
 ### The following steps were taken to deploy the app to Heroku:
@@ -470,13 +484,14 @@ sqlparse==0.4.4
 ## Known Bugs
 
 ### Adoption Form
-There is some kind of bug in the phone field which removes the + symbol (for international numbers) when the user uses the autocomplete function or when you paste in the phone number. This results that the phone number always will be invalid when the user doesn¨t type the '+'. 
+There is some kind of bug in the phone field which removes the + symbol (for international numbers) when the user uses the autocomplete function or when you paste in the phone number. This results that the phone number always will be invalid when the user doesn't type the '+'. 
+
 If you type in the phone number manually the validation works as expected. 
 
 ### Uncaught TypeError at alert.js
 During page load an error occurs that is visible in the console but doesn't disrupt the function. However, this is a loaded js file from Bootstrap and cannot be fixed locally.
 
-![Alert.js](static/readme-images/others/alert_js.png)
+[Alert.js](static/readme-images/others/alert_js.png)
 
 
 ### Styling
@@ -487,12 +502,12 @@ Styling could be optimized, there are some font sizes and colors in the forms th
 ## Credits
 
 #### Cats images:
-![Default image, logo & favicon](https://www.vectorportal.com)
-![All Cats](https://unsplash.com)
+[Default image, logo & favicon](https://www.vectorportal.com)
+[All Cats](https://unsplash.com)
 
 #### Code Snippets & Tutorials:
-![Fieldset and legend revert](https://stackoverflow.com/questions/70536735/override-bootstrap-5-fieldset-style)
-![Django Select2](https://www.youtube.com/watch?v=Zzd4sL7drKQ&list=PL-2EBeDYMIbQIu4aMZYqM6_w1ihIKWIql&index=19&pp=iAQB)
-![Bootstrap5 Documentation](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
-![Django Documentation](https://docs.djangoproject.com/en/4.2/)
-![W3Schools](https://www.w3schools.com/)
+[Fieldset and legend revert](https://stackoverflow.com/questions/70536735/override-bootstrap-5-fieldset-style)
+[Django Select2](https://www.youtube.com/watch?v=Zzd4sL7drKQ&list=PL-2EBeDYMIbQIu4aMZYqM6_w1ihIKWIql&index=19&pp=iAQB)
+[Bootstrap5 Documentation](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
+[Django Documentation](https://docs.djangoproject.com/en/4.2/)
+[W3Schools](https://www.w3schools.com/)
