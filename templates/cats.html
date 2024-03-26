@@ -22,7 +22,7 @@
 										class="{% if cat.gender == 'Female' %}female{% else %}male{% endif %} card-title cat_name text-center">
 										{{ cat.name | upper }}</h3>
 									{% if "placeholder" in cat.image.url %}
-									<img src="https://res.cloudinary.com/dhciyvwx5/image/upload/v1703268464/default.png"
+									<img src="https://res.cloudinary.com/dhciyvwx5/image/upload/v1703268464/default.webp"
 										class="card-img-top" alt="...">
 									{% else %}
 									<img src="{{ cat.image.url }}" class="card-img-top" alt="...">

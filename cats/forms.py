@@ -47,14 +47,19 @@ class AdoptionForm(ModelForm):
                   'cats',)
         widgets = {
             'full_name': forms.TextInput(attrs={'class': 'form-control',
+                                                'aria-label': 'Full Name',
                                                 'placeholder': 'Full Name *'}),
             'email': forms.EmailInput(attrs={'class': 'form-control',
+                                             'aria-label': 'E-Mail',
                                              'placeholder': 'E-Mail *'}),
             'phone': forms.TextInput(attrs={'class': 'form-control',
+                                            'aria-label': 'Phone number',
                                             'placeholder': 'Phone number *, ' +
                                             'use format +46 123456789'}),
-            'date_of_birth': forms.DateInput(attrs={'type': 'date',}),
+            'date_of_birth': forms.DateInput(attrs={'type': 'date',
+                                                    'aria-label': 'Date of Birth'}),
             'about_you': forms.Textarea(attrs={'class': 'form-control',
+                                               'aria-label': 'About you',
                                                'rows': 5, 'placeholder':
                                                'Please tell us about you, ' +
                                                'your family and your ' +
