@@ -192,9 +192,6 @@ legend.custom-border {
   margin-left: 0 !important;
   margin-top: 0 !important;
   padding: 0.25rem 0.75rem;
-  max-width: 100%;
-  resize: none;
-  height: 1.5rem;
   vertical-align: middle !important;
   overflow: visible;
   word-break: keep-all;

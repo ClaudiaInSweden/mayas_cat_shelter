@@ -16,10 +16,10 @@
         </div>
         <div class="container mt-3">
             <div class="card mb-3">
-                <div class="row">
+                <div class="row green-bg">
                     <form action="{% url 'adoption' %}" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
-                        <div class="col-md-8">
+                        <div class="col-12 col-md-8">
                             <div class="card-body custom-border green-bg">
                                 <div class="card-text">
                                     <div class="form-group green-bg">
@@ -48,8 +48,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        
+                        </div>                        
                     </form>
                 </div>
             </div>

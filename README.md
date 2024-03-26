@@ -334,6 +334,12 @@ Functionality, links, layout, and responsiveness were tested with the following 
 - Google Chrome Version 116.0.5845.188
   
 
+## Manual Testing
+
+Manual testing was performed on a Lenovo Legion Slim 7 and a Samsung Galaxy S22 Ultra.
+Layout looked good on both devices. 
+
+
 ## Bugs
 
 
