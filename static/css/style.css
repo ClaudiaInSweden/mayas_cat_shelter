@@ -435,7 +435,7 @@ input[type="reset"] {
 }
 @media screen and (min-width: 768px) {
   body, h4, h6, th, td {
-    font-size: 1.2rem !important;
+    font-size: 1.1rem !important;
   }
   .footer { 
     font-size: 1.2rem;
@@ -444,7 +444,7 @@ input[type="reset"] {
     font-size: 1.2rem;
   }
   .form-control {
-    font-size: 1.2rem !important;
+    font-size: 1.1rem !important;
   }
   .select2-search__field::placeholder {
     font-size: 1rem;

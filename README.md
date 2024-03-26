@@ -1,5 +1,8 @@
 # Mayas Cat Shelter
 
+By Claudia Bergstaller
+
+
 ## Introduction
 
 ### Project Description
@@ -42,37 +45,25 @@ I wanted to add a logotype representing a cat and found a nice image that I used
 
 Wireframes were created for desktop, iPad and smartphones using Balsamiq.
 
-#### Home Page
-![Home Page Desktop](/static/readme-images/wireframes/Home.png)
+Home Page
+![Home](static/readme-images/wireframes/home.png)
 
-![Home Page iPad](/static/readme-images/wireframes/Home iPad.png)
+Our Cats
+![Cats](static/readme-images/wireframes/cats.png)
 
-![Home Page Smartphone](static/readme-images/wireframes/Home Smartphone.png)
+Adoption
+![Adoption](static/readme-images/wireframes/adoption.png)
 
-#### Our Cats
-![Our Cats Desktop](/static/readme-images/wireframes/Our Cats.png)
-![Our Cats iPad](static/readme-images/wireframes/Our Cats iPad.png)
-![Our Cats Smartphone](static/readme-images/wireframes/Our Cats Smartphone.png)
+Adoption Form
+![Adoption Form](static/readme-images/wireframes/adoption-form.png)
 
-#### Adoption
-![Adoption Rules Desktop](static/readme-images/wireframes/Adoption Rules.png)
-![Adooption Rules iPad](static/readme-images/wireframes/Adoption Rules iPad.png)
-![Adoption Rules Smartphone](static/readme-images/wireframes/Adoption Rules Smartphone.png)
+Administration Cats
+![Administration Cats](static/readme-images/wireframes/administration-cats.png)
 
-#### Adoption Form
-![Adoption Form Desktop](static/readme-images/wireframes/Adoption Form.png)
-![Adoption Form iPad](static/readme-images/wireframes/Adoption Form iPad.png)
-![Adoption Form Smartphone](static/readme-images/wireframes/Adoption Form Smartphone.png)
+Administration Adoption Requests
+![Administration Adoption](static/readme-images/wireframes/administration-adoption.png)
 
-#### Administration Cats
-![Admin Cats Desktop](static/readme-images/wireframes/Administration Cats.png)
-![Admin Cats iPad](static/readme-images/wireframes/Administration Cats iPad.png)
-![Admin Cats Smartphone](static/readme-images/wireframes/Administration Cats Smartphone.png)
 
-#### Administration Adoption Requests
-![Admin Adoption Desktop](static/readme-images/wireframes/Administration Adoptions.png)
-![Admin Adoption iPad](static/readme-images/wireframes/Administration Adoptions iPad.png)
-![Admin Adoption Smartphone](static/readme-images/wireframes/Administration Adoptions Smartphone.png)
 
 ## Agile 
 
@@ -158,18 +149,27 @@ Two options are available:
 #### Administration Cats 
 
 The staff member will see a table of all cats, both with status published or draft. 
-The table contains the cat name, gender, adoption status and publication status. On the right side there's an edit and delete button for each row/cat. 
+
+The table contains the cat name, gender, adoption status and publication status. 
+
+On the right side there's an edit and delete button for each row/cat. 
 On top of the page, a "Add a cat" button links to the add cat form. To populate a new cat, name, gender need to be entered. Publication status as well as adoption status are mandatory, but have default values ("Draft" resp. "Ready for adoption"). If no image is uploaded, a default image with a cat silhoutte (same as logo and favicon) will be added. 
+
 When the staff member clicks on the edit button in the cat table, the same form will be opened, but with the cat data pre-populated. 
-When the staff member clicks on the delete button in the cat table, a confirmation page will be opened, asking for a confirmation to delete the cat. When the user confirms deleting, the cat will be deleted and the user redirected to the cat administration page. If the user clicks on Cancel, the user will be redirected back to the cat administration page. 
+
+When the staff member clicks on the delete button in the cat table, a confirmation page will be opened, asking for a confirmation to delete the cat. When the user confirms deleting, the cat will be deleted and the user redirected to the cat administration page. 
+If the user clicks on Cancel, the user will be redirected back to the cat administration page. 
 
 ![Admin Cats](static/readme-images/screenshots-pages/admin_cats.png)
 
 
 #### Administration Adoption requests
 
-The staff member will see all adoption requests in card form, sorted by date. The idea with this page is that the staff can see at one glance all information about an adopter. A staff member can also edit the status of the adoption request, following the steps outlined on the adoption page, and add comments. 
+The staff member will see all adoption requests in card form, sorted by date. The idea with this page is that the staff can see at one glance all information about an adopter. 
+
+A staff member can also edit the status of the adoption request, following the steps outlined on the adoption page, and add comments. 
 Personal data of the adopter is not editable in this view! 
+
 However, as there is the possibility that either the interested adopter or the cat shelter staff conclude that the choosen cat might not be the right one for this person, the cat selection list is editable for staff members. 
 
 ![Admin Adoptions](static/readme-images/screenshots-pages/update_status.png)
@@ -184,37 +184,70 @@ When a staff member is logged in, the "Staff Login" link will change to "Logout"
 Non-staff users who try to access one of the administrator pages (add-cat, update-cat, delete-cat, update-status), will be redirected to the Login page.
 
 
+## Future Features
+
+There are many possibilities for further improvement to the website. 
+Some suggestions and ideas are:
+- Create a blog-like page with regular updates about the cats
+- When the number of adopted cats increases, a separate page with these cats listed could be nice.
+- Create a contact us page
+- Create a page with information about how people can support the cat shelter, e.g. donations (money, food, cat trees, etc.) but also volunteer services.
+- For administrator could the adoption request page developed further to include the complete adoption process with its several steps in digital form.
+- A newsletter functionality could be included to keep supporters informed and so on.
+
+
 ## Information Architecture
 
 ### Relationship Diagram
 
-![ERD](static/readme-images/others/PP4_Entity Relationship Diagram.drawio.png)
+
+![ERD](static/readme-images/others/PP4_ERD_drawio.png)
+
 
 ### Data Models
 
 #### Cats Model
 
 id (PK): unique identifier for each cat
+
 name (string): Name of the cat
+
 date_born (string): month and year when cat is born
+
 gender (choice): female or male
+
 description (textfield): A description of the cats background and temperament
+
 image (image upload to Cloudinary): picture of cat or placeholder image
+
 status (choice): draft or published
+
 adopt_status (choice): Not yet ready for adoption, ready for adoption, booked, adopted
+
 date_created (date): set automatically to todays date
+
+
 
 #### Adoption Model
 
 id (PK): unique iedentifier for each adoption request
+
 full_name: (string) Name
+
 email (email field): Email 
+
 phone (phonenumber): phone number
+
 date_of_birth (date input): date, validates if adopter is 19 years or older
+
 about_you (text area): Freetext field
+
 cats (ManyToMany relationship to cats): to select up to three cats 
+
 received (date): set automatically to todays date
+
 status (choice): for admin to set according to where in the adoption process they are
+
 comments (text field): for admin to fill in
 
 
@@ -238,6 +271,7 @@ User can read non-restricted content
 - Deployment: Heroku
 
 ### Software and frameworks
+
 ![Django 4.2](https://docs.djangoproject.com/en/4.2/)
 ![Bootstrap 5.1.3](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
 ![Fontawsome Icons](https://fontawesome.com/icons)
@@ -265,13 +299,29 @@ Details for each page can be found by clicking the expand button.
 <details>
 
 <summary>HTML Validation </summary>
+
+Homepage
 ![Home Page](static/readme-images/validation-html/index.png)
+
+Our Cats
 ![Our Cats](static/readme-images/validation-html/cats.png)
+
+Adoption
 ![Adoption](static/readme-images/validation-html/adoption.png)
+
+Adoption Form
 ![Adoption Form](static/readme-images/validation-html/adoption_form.png)
+
+Administration Cats
 ![Admin Cats](static/readme-images/validation-html/cats_administration.png)
+
+Administration Adoption Requests
 ![Admin Adoption](static/readme-images/validation-html/adoption_administration.png)
+
+Login
 ![Login](static/readme-images/validation-html/login.png)
+
+Logout
 ![Logout](static/readme-images/validation-html/logout.png)
 
 </details>
@@ -282,6 +332,7 @@ Details for each page can be found by clicking the expand button.
 
 No errors were found when passing through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) validator
 ![CSS Validator](static/readme-images/validation-css/validation-css.png)
+
 
 #### Google Chrome Lighthouse Reports
 
@@ -294,13 +345,28 @@ Details for each page can be found by clicking the expand button.
 
 <summary>Lighthouse Reports</summary>
 
+Homepage
 ![Home](static/readme-images/validation-performance/index.png)
+
+Our Cats
 ![Our Cats](static/readme-images/validation-performance/cats.png)
+
+Adoption
 ![Adoption](static/readme-images/validation-performance/adoption.png)
+
+Adoption Form
 ![Adoption Form](static/readme-images/validation-performance/adoption_form.png)
+
+Administration Cats
 ![Admin Cats](static/readme-images/validation-performance/cats_administration.png)
+
+Administration Adoption Requests
 ![Admin Adoptions](static/readme-images/validation-performance/adoption_administration.png)
+
+Login
 ![Login](static/readme-images/validation-performance/login.png)
+
+Logout
 ![Logout](static/readme-images/validation-performance/logout.png)
 
 </details>
@@ -314,10 +380,20 @@ Details for each part can be found by clicking the expand button.
 <details>
 
 <summary>Python Linter </summary>
+
+model.py
 ![models.py](static/readme-images/validation-python/models_py.png)
+
+forms.py
 ![forms.py](static/readme-images/validation-python/forms_py.png)
+
+admin.py
 ![admin.py](static/readme-images/validation-python/admin_py.png)
+
+urls.py
 ![urls.py](static/readme-images/validation-python/urls_py.png)
+
+views.py
 ![views.py](static/readme-images/validation-python/views_py.png)
 
 </details>
@@ -328,10 +404,10 @@ Details for each part can be found by clicking the expand button.
 
 Functionality, links, layout, and responsiveness were tested with the following browsers without any major issues:
 
-- Microsoft Edge Version 117.0.2045.47
-- Firefox Version 118.0.1
-- Brave Version 1.58.135
-- Google Chrome Version 116.0.5845.188
+- Microsoft Edge Version 122.0.2365.92
+- Firefox Version 122.0.1
+- Brave Version 1.64.109
+- Google Chrome Version 123.0.6312.58
   
 
 ## Manual Testing
@@ -339,9 +415,72 @@ Functionality, links, layout, and responsiveness were tested with the following 
 Manual testing was performed on a Lenovo Legion Slim 7 and a Samsung Galaxy S22 Ultra.
 Layout looked good on both devices. 
 
+![Manual Testing](static/readme-images/others/manual-testing.png)
 
-## Bugs
 
+## Deployment
+
+
+A Repository was created in Github, and apps and templates were developed using VS Code.
+At an early stage a database on ElephantSQL was connected to the project as well als Cloudinary to store static files.
+The following packages were installed in VS Code and added to the requirements.txt:
+
+annotated-types==0.6.0
+asgiref==3.7.2
+cloudinary==1.37.0
+crispy-bootstrap5==2023.10
+dj-database-url==0.5.0
+dj3-cloudinary-storage==0.0.6
+Django==4.2
+django-allauth==0.57.0
+django-bootstrap-datepicker-plus==5.0.5
+django-bootstrap-v5==1.0.11
+django-cloudinary-storage==0.3.0
+django-crispy-forms==2.1
+django-jquery==3.1.0
+django-phone-field==1.8.1
+django-phonenumber-field==7.3.0
+django-resized==1.0.2
+django-summernote==0.8.20.0
+gunicorn==21.2.0
+oauthlib==3.2.2
+phonenumbers==8.13.27
+phonenumberslite==8.13.32
+Pillow==10.1.0
+psycopg2==2.9.9
+pydantic==2.6.3
+pydantic_core==2.16.3
+PyJWT==2.8.0
+python3-openid==3.2.0
+requests-oauthlib==1.3.1
+sqlparse==0.4.4
+
+
+### The following steps were taken to deploy the app to Heroku:
+- Create a new app on Heroku
+- Choose an unique name for the app and select your region
+- Click on Create App
+- When ready, add config vars in the respective hidden field in the Settings tab.
+- Add the buildpack "Heroku/Python"
+- Select the Deploy tab and add connect to Github under Deployment method, select the repository that shall be deployed
+- Finally, choose if you want to enable automatic or manual deployment. 
+- Wait until the app is loaded and open your website.
+
+
+## Known Bugs
+
+### Adoption Form
+There is some kind of bug in the phone field which removes the + symbol (for international numbers) when the user uses the autocomplete function or when you paste in the phone number. This results that the phone number always will be invalid when the user doesn¨t type the '+'. 
+If you type in the phone number manually the validation works as expected. 
+
+### Uncaught TypeError at alert.js
+During page load an error occurs that is visible in the console but doesn't disrupt the function. However, this is a loaded js file from Bootstrap and cannot be fixed locally.
+
+![Alert.js](static/readme-images/others/alert_js.png)
+
+
+### Styling
+Styling could be optimized, there are some font sizes and colors in the forms that don't match 100% but I have an issue with the display in the Google Developer Tool. When looking at the smalles item, a Galaxy Fold, the layout always looks completely distroyed. I spent a lot of time to fix that and only recently I noticed that something must be wrong with the Developer tool because all websites look the same ugly way. 
 
 
 

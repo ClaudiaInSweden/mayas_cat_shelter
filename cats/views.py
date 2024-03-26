@@ -56,9 +56,9 @@ def updateCat(request, pk):
             messages.info(request, 'The cat was updated successfully!')
             return redirect('administration')
         else:
-            messages.error(request, 'Your form could not be submitted. ' +
+            messages.error(request, 'The form could not be updated. ' +
                                     'Please make sure the form is valid.')
-            form = updateCat(instance=cat)
+            form = CatsForm(instance=cat)
 
     context = {'form': form}
     return render(request, 'admin_cat.html', context)

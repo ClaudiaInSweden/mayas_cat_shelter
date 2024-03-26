@@ -16,14 +16,13 @@
         <div class="container mt-3">
             <div class="card mb-3">
                 <div class="row">
-                    <form action="{% url 'create-cat' %}" method="POST" enctype="multipart/form-data">
+                    <div class="form-group"></div>
+                    <form action="" method="POST" enctype="multipart/form-data">
                         <div class="col-md-8">
                             <div class="card-body custom-border">
                                 <div class="card-text">
-                                    <div class="form-group">
-                                        {% csrf_token %}
-                                        {{ form|crispy }}
-                                    </div>
+                                    {% csrf_token %}
+                                    {{ form|crispy }}
                                 </div>
                             </div>
                         </div>
@@ -33,6 +32,7 @@
                     </form>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 </main>
