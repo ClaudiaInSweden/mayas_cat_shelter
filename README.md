@@ -285,16 +285,25 @@ User can read non-restricted content
 
 ### Software and frameworks
 
-[Django 4.2](https://docs.djangoproject.com/en/4.2/)
-[Bootstrap 5.1.3](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
-[Fontawsome Icons](https://fontawesome.com/icons)
-[Favicon](https://favicon.io/)
-[Google Fonts](https://fonts.google.com/)
-[Color palette](https://coolors.co/palettes/trending)
-[Birme](https://www.birme.net/)
-[Snagit Editor](https://www.techsmith.com/screen-capture.html)
-[Balsamiq](https://balsamiq.com/)
-[Draw.io](https://github.com/jgraph/drawio/wiki)
+- [Django 4.2](https://docs.djangoproject.com/en/4.2/)
+
+- [Bootstrap 5.1.3](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
+
+- [Fontawsome Icons](https://fontawesome.com/icons)
+
+- [Favicon](https://favicon.io/)
+
+- [Google Fonts](https://fonts.google.com/)
+
+- [Color palette](https://coolors.co/palettes/trending)
+
+- [Birme](https://www.birme.net/)
+
+- [Snagit Editor](https://www.techsmith.com/screen-capture.html)
+
+- [Balsamiq](https://balsamiq.com/)
+
+- [Draw.io](https://github.com/jgraph/drawio/wiki)
 
 
 
@@ -491,7 +500,7 @@ If you type in the phone number manually the validation works as expected.
 ### Uncaught TypeError at alert.js
 During page load an error occurs that is visible in the console but doesn't disrupt the function. However, this is a loaded js file from Bootstrap and cannot be fixed locally.
 
-[Alert.js](static/readme-images/others/alert_js.png)
+![Alert.js](static/readme-images/others/alert_js.png)
 
 
 ### Styling
@@ -502,12 +511,16 @@ Styling could be optimized, there are some font sizes and colors in the forms th
 ## Credits
 
 #### Cats images:
-[Default image, logo & favicon](https://www.vectorportal.com)
-[All Cats](https://unsplash.com)
+[Default image, logo & favicon: vectorportal.com](https://www.vectorportal.com)
+
+[All Cats: unsplash.com](https://unsplash.com)
+
 
 #### Code Snippets & Tutorials:
-[Fieldset and legend revert](https://stackoverflow.com/questions/70536735/override-bootstrap-5-fieldset-style)
-[Django Select2](https://www.youtube.com/watch?v=Zzd4sL7drKQ&list=PL-2EBeDYMIbQIu4aMZYqM6_w1ihIKWIql&index=19&pp=iAQB)
-[Bootstrap5 Documentation](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
-[Django Documentation](https://docs.djangoproject.com/en/4.2/)
-[W3Schools](https://www.w3schools.com/)
+- [Fieldset and legend revert](https://stackoverflow.com/questions/70536735/override-bootstrap-5-fieldset-style)
+- [Django Select2](https://www.youtube.com/watch?v=Zzd4sL7drKQ&list=PL-2EBeDYMIbQIu4aMZYqM6_w1ihIKWIql&index=19&pp=iAQB)
+- [Bootstrap5 Documentation](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
+- [Django Documentation](https://docs.djangoproject.com/en/4.2/)
+- [W3Schools](https://www.w3schools.com/)
+- [Stack Overflow](https://stackoverflow.com/)
+- [Slack](https://slack.com/)
