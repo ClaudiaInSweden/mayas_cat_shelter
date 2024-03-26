@@ -21,11 +21,11 @@ class CatsForm(ModelForm):
             'name': forms.TextInput(attrs={'class': 'form-control',
                                            'aria-label': 'Cat name'}),
             'date_born': forms.TextInput(attrs={'class': 'form-control',
-                                            'aria-label': 'Born'}),
+                                                'aria-label': 'Born'}),
             'gender': forms.Select(attrs={'class': 'form-control',
                                           'aria-label': 'Gender'}),
             'description': forms.Textarea(attrs={'class': 'form-control',
-                                                'aria-label': 'Temperament',
+                                                 'aria-label': 'Temperament',
                                           'rows': 5}),
             'status': forms.Select(attrs={'class': 'form-control',
                                           'aria-label': 'Publication status'}),
@@ -69,7 +69,7 @@ class AdoptionForm(ModelForm):
                                             'placeholder': 'Phone number *, ' +
                                             'use format +46 123456789'}),
             'date_of_birth': forms.DateInput(attrs={'type': 'date',
-                                                    'aria-label': 'Date of Birth'}),
+                                                    'aria-label': 'Birthday'}),
             'about_you': forms.Textarea(attrs={'class': 'form-control',
                                                'aria-label': 'About you',
                                                'rows': 5, 'placeholder':
@@ -112,7 +112,7 @@ class StatusForm(ModelForm):
             'status': forms.Select(attrs={'class': 'form-control',
                                           'aria-label': 'Status'}),
             'comments': forms.Textarea(attrs={'class': 'form-control',
-                                            'aria-label': 'Comments',
+                                              'aria-label': 'Comments',
                                               'rows': 5,
                                               'placeholder': 'Comments'}),
         }
