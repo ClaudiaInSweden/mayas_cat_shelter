@@ -15,18 +15,19 @@
         </div>
         <div class="container mt-3">
             <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-md-5">
-                        <div class="card-body custom-border">
-                            <div class="card-text">
-                                <div class="form-group">
-                                    <form action="" method="POST" enctype="multipart/form-data">
-                                        {% csrf_token %}
+                <form action="." method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row g-0">
+                        <div class="col-md-5">
+                            <div class="card-body custom-border">
+                                <div class="card-text">
+                                    <div class="form-group">
+
                                         <div class="row">
                                             <div class="col-4 pt-2">
                                                 <h4>Name: </h4>
                                             </div>
-                                            <div class="col-8" disabled aria-disabled="true">
+                                            <div class="col-8">
                                                 {{ form.full_name | as_crispy_field }}</div>
                                             <div class="col-4 pt-2">
                                                 <h4>Date of birth: </h4>
@@ -45,42 +46,41 @@
                                             </div>
                                             <div class="col-8">{{ form.status | as_crispy_field }}</div>
                                         </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="card-body custom-border">
-                            {{ form.about_you | as_crispy_field }}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <hr>
-                        <div class="col-md-5">
-                            <div class="card-body custom-border">
-                                <div class="col-4">
-                                    <h4>Selected cats: </h4>
-                                </div>
-                                <div class="col-8">{{ adoption.cats.all|join:"<br>" }}</div>
-                                {{ form.cats | as_crispy_field}}
-                                <div buttons>
-                                    <span><input type="submit" value="Update"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-7">
                             <div class="card-body custom-border">
-                                <div>
-                                    <h4>Comments:</h4>
+                                {{ form.about_you | as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <hr>
+                            <div class="col-md-5">
+                                <div class="card-body custom-border">
+                                    <div class="col-4">
+                                        <h4>Selected cats: </h4>
+                                    </div>
+                                    <div class="col-8">{{ adoption.cats.all|join:"<br>" }}</div>
+                                    {{ form.cats | as_crispy_field}}
+                                    <div>
+                                        <span><input type="submit" value="Update"></span>
+                                    </div>
                                 </div>
-                                {{ form.comments | as_crispy_field }}
+                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body custom-border">
+                                    <div>
+                                        <h4>Comments:</h4>
+                                    </div>
+                                    {{ form.comments | as_crispy_field }}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 </form>
             </div>
-        </div>
         </div>
     </section>
 </main>
