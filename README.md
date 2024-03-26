@@ -86,68 +86,54 @@ On this page all available cats are listed with:
 - Approx. birth date (originally I used a date field but realized in a later stage that cat shelters resp. vets often only can guess when a homeless cat is born so I updated this field to a textfield)
 - Gender (depending on gender, displayed in red (female) or blue (male))
 - Background and Temperament
--  
+- Adoption status (when a cat is already adopted, the "Adopt" button is replaced with just some info text accordingly)
+- Adopt Button that links to the adoption form  
 
 
+### Adoption
 
-### Painting details
-
-Again, the focus is on the painting and the user might need to scroll down to see the price.
-
-To keep the interest alive and display a full collection of the artwork it's decided to leave the sold paintings in the shop but with a "SOLD" label and no price and no "Add to cart" button available. 
-At the time of project submission there is not yet an automatically function implemented to change the status of a painting. This is possible through the product management page which is available for superusers. However, an automated function should be implemented in phase 2.
-
-![Painting details](https://hanneles-art-gallery.s3.eu-north-1.amazonaws.com/readme-docs/painting_detail.jpg)
-![Confirmation window](https://hanneles-art-gallery.s3.eu-north-1.amazonaws.com/readme-docs/add_to_cart.jpg)
+The adoption page includes information about what to consider when adopting a cat, the costs and the process steps.
+On the bottom of the page a button links to the adoption form. 
 
 
-### Shopping cart
+### Adoption Form
 
-On the shopping cart page the user can see an overview of the paintings in the shopping cart as well as total costs including a delivery flat rate. As the paintings don't differ a lot in sizes and can easily be packaged I decided to use a flat rate for delivery. 
-Here the user also has the possibility to remove a painting from the cart or go back to the paintings overview page. 
+The adoption form consists of two parts:
+1. The user fills in Name, E-Mail, Phone, Date of birth and some information about themselves. 
+2. The user selects up to three cats to adopt. It's also possible to search for cat names.
 
-![Shopping cart](https://hanneles-art-gallery.s3.eu-north-1.amazonaws.com/readme-docs/shopping_cart.jpg)
-
-If the user deletes all items in the shopping cart some info text will be displayed, telling the user that the shopping cart is empty; and a button to the paintings overview page. 
-
-If the user clicks the Complete checkout button the user will be directed to the checkout form. Also here the user can see what paintings are in the shopping cart and the total sum. 
-
-### Checkout
-
-On the checkout page the user can see a short summary of the order on the right side and a form on the left side. 
-The form asks for name, email and the delivery address. When the user is already registered and logged in, the address will be pre-populated. As the location for the webshop is in Sweden, it was decided to use only the address fields that are common in Sweden, so state/county has not been used. 
-On the bottom of the page you can find the Stripe credit card section for the user to fill in credit card number, valid date, CVV and zip code.
-As only a Stripe test account is used, an error will be displayed when a credit card number other than the test card number 4242 ... is entered.
-Also here the user can still choose to interrupt the checkout process and go back to the paintings page. 
-
-![Checkout Page](https://hanneles-art-gallery.s3.eu-north-1.amazonaws.com/readme-docs/checkout.jpg)
-
-When the user completes the form and clicks on Complete Order the Checkout Success/Order confirmation page is opened. 
+When clicking the submit button, the user will be redirected to the start page and a confirmation message will be displayed for 5 seconds. It is also possible to remove the message by closing it manually. 
 
 
-### Order confirmation
+### Administration for staff
 
-While the payment transfer is ongoing a spinning overlay is displayed to inform the user that the transaction is ongoing.
-
-![Checkout overlay](https://hanneles-art-gallery.s3.eu-north-1.amazonaws.com/readme-docs/checkout_overlay.jpg)
-
-Once the transaction is completed successfully an order confirmation page is displayed informing the user that a confirmation email has been sent to the provided email address. Also an order summary with the delivery address is visible as well as a button back to the paintings page. 
-
-![Order confirmation](https://hanneles-art-gallery.s3.eu-north-1.amazonaws.com/readme-docs/order_confirmation.jpg)
+When a staff member is logged in, the administration dropdown menu will be visible in the navbar.
+Two options are available:
 
 
-### My Account
+#### Administration Cats 
 
-Under the My Account menu tab in the navigation the user will see different options depending on the log-in status:
-- When the user is not logged in a Registration and a Log-in Option are available. They open Allauth templates which are Bootstrap-styled to match the rest of the website. The log-in page offers also the possibility to restore the password in case it's been forgotten.
-- When the user is already loggeg in, a Log-out option will be visible instead. 
-- When a user is logged in as a superuser, the Product Management link is available that leads to a page that enables to add another painting. Contrary to the Walkthrough project the image upload is mandatory as we cannot sell paintings without being able to show them to the user. 
-
-![Not logged in](https://hanneles-art-gallery.s3.eu-north-1.amazonaws.com/readme-docs/account_logged_out.jpg)
-![Logged in as administrator(https://hanneles-art-gallery.s3.eu-north-1.amazonaws.com/readme-docs/account_logged_in.jpg)]
+The staff member will see a table of all cats, both with status published or draft. 
+The table contains the cat name, gender, adoption status and publication status. On the right side there's an edit and delete button for each row/cat. 
+On top of the page, a "Add a cat" button links to the add cat form. To populate a new cat, name, gender need to be entered. Publication status as well as adoption status are mandatory, but have default values ("Draft" resp. "Ready for adoption"). If no image is uploaded, a default image with a cat silhoutte (same as logo and favicon) will be added. 
+When the staff member clicks on the edit button in the cat table, the same form will be opened, but with the cat data pre-populated. 
+When the staff member clicks on the delete button in the cat table, a confirmation page will be opened, asking for a confirmation to delete the cat. When the user confirms deleting, the cat will be deleted and the user redirected to the cat administration page. If the user clicks on Cancel, the user will be redirected back to the cat administration page. 
 
 
+#### Administration Adoption requests
 
+The staff member will see all adoption requests in card form, sorted by date. The idea with this page is that the staff can see at one glance all information about an adopter. A staff member can also edit the status of the adoption request, following the steps outlined on the adoption page, and add comments. 
+Personal data of the adopter is not editable in this view! 
+However, as there is the possibility that either the interested adopter or the cat shelter staff conclude that the choosen cat might not be the right one for this person, the cat selection list is editable for staff members. 
+
+
+### Login/Logout
+
+The navigation bar includes a "Staff Login" link for staff members to log in. This might not be best practise for real cases but it's the easiest way to log in for the project assessors at Code Institute.
+However, I have removed the link to the "Sign in" page to avoid sign in attempts of page visitors. 
+When a staff member is logged in, the "Staff Login" link will change to "Logout".
+
+Non-staff users who try to access one of the administrator pages (add-cat, update-cat, delete-cat, update-status), will be redirected to the Login page.
 
 
 
@@ -157,26 +143,25 @@ Under the My Account menu tab in the navigation the user will see different opti
 ### Languages
 - HTML5
 - CSS
-- JavaScript
-- jQuery
 - Python
-- Django
 
 ### Technologies and programs
 - IDE: Gitpod/VS Code
 - Repository: GitHub
 - Database: ElephantSQL
-- Payment solution: Stripe
-- Storage: AWS S3 for storing media and static files
 - Deployment: Heroku
 
 ### Software and frameworks
-![Colorlib template "Pillowmate"](https://themewagon.com/themes/free-bootstrap-4-html5-responsive-online-store-template-pillow-mart/)
-![Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+![Django 4.2](https://docs.djangoproject.com/en/4.2/)
+![Bootstrap 5.1.3](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
 ![Fontawsome Icons](https://fontawesome.com/icons)
 ![Favicon](https://favicon.io/)
+![Google Fonts](https://fonts.google.com/)
+![Color palette](https://coolors.co/palettes/trending)
 ![Birme](https://www.birme.net/)
 ![Snagit Editor](https://www.techsmith.com/screen-capture.html)
+![Balsamiq](https://balsamiq.com/)
+![Draw.io](https://github.com/jgraph/drawio/wiki)
 
 
 

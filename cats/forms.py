@@ -18,17 +18,26 @@ class CatsForm(ModelForm):
         model = Cats
         fields = '__all__'
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'date_born': forms.TextInput(attrs={'class': 'form-control'}),
-            'gender': forms.Select(attrs={'class': 'form-control'}),
+            'name': forms.TextInput(attrs={'class': 'form-control',
+                                           'aria-label': 'Cat name'}),
+            'date_born': forms.TextInput(attrs={'class': 'form-control',
+                                            'aria-label': 'Born'}),
+            'gender': forms.Select(attrs={'class': 'form-control',
+                                          'aria-label': 'Gender'}),
             'description': forms.Textarea(attrs={'class': 'form-control',
+                                                'aria-label': 'Temperament',
                                           'rows': 5}),
-            'status': forms.Select(attrs={'class': 'form-control'}),
-            'adopt_status': forms.Select(attrs={'class': 'form-control'}),
+            'status': forms.Select(attrs={'class': 'form-control',
+                                          'aria-label': 'Publication status'}),
+            'adopt_status': forms.Select(attrs={'class': 'form-control',
+                                                'aria-label': 'Adopt status'}),
         }
 
 
 class AdoptionForm(ModelForm):
+    """
+    Filter cats list so that only published cats are visible in the select box
+    """
     cats = forms.ModelMultipleChoiceField(
         queryset=Cats.objects.filter(status='Published')
     )
@@ -89,14 +98,21 @@ class StatusForm(ModelForm):
         """
         widgets = {
             'full_name': forms.TextInput(attrs={'class': 'form-control',
-                                                'readonly': 'readonly'}),
+                                                'readonly': 'readonly',
+                                                'aria-label': 'Name'}),
             'email': forms.EmailInput(attrs={'class': 'form-control',
-                                             'readonly': 'readonly'}),
-            'phone': forms.TextInput(attrs={'readonly': 'readonly'}),
-            'date_of_birth': forms.DateInput(attrs={'readonly': 'readonly'}),
-            'about_you': forms.Textarea(attrs={'readonly': 'readonly'}),
-            'status': forms.Select(attrs={'class': 'form-control'}),
+                                             'readonly': 'readonly',
+                                             'aria-label': 'Email'}),
+            'phone': forms.TextInput(attrs={'readonly': 'readonly',
+                                            'aria-label': 'Phone'}),
+            'date_of_birth': forms.DateInput(attrs={'readonly': 'readonly',
+                                                    'aria-label': 'Born'}),
+            'about_you': forms.Textarea(attrs={'readonly': 'readonly',
+                                               'aria-label': 'About'}),
+            'status': forms.Select(attrs={'class': 'form-control',
+                                          'aria-label': 'Status'}),
             'comments': forms.Textarea(attrs={'class': 'form-control',
+                                            'aria-label': 'Comments',
                                               'rows': 5,
                                               'placeholder': 'Comments'}),
         }
