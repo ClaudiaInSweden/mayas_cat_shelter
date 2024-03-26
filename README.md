@@ -72,7 +72,7 @@ The responsive footer sticks to the bottom of each page and includes copyright i
 
 ### Home Page
 
-The Home page is the starting point for users. A carousel shows two alternating cat images with links to either the cats page or the adoption page. Some descriptive text about the cat shelter is to be found below the carousel. 
+The Home page is the starting point for users. A carousel shows two alternating cat images with links to either the cats page or the adoption page. Some descriptive text about the cat shelter can be found below the carousel. 
 
 
 ![Home Page](https://hanneles-art-gallery.s3.eu-north-1.amazonaws.com/readme-docs/Homepage.jpg) IMAGE
@@ -81,12 +81,13 @@ The Home page is the starting point for users. A carousel shows two alternating 
 
 ### Our cats
 
+On this page all available cats are listed with:
+- Name (colored in red (female) or blue (male))
+- Approx. birth date (originally I used a date field but realized in a later stage that cat shelters resp. vets often only can guess when a homeless cat is born so I updated this field to a textfield)
+- Gender (depending on gender, displayed in red (female) or blue (male))
+- Background and Temperament
+-  
 
-A button in the bottom right corner enables a fast return to the top of the page at any moment.
-
-![All Paintings page](https://hanneles-art-gallery.s3.eu-north-1.amazonaws.com/readme-docs/paintings.jpg)
-
-The buttons "Update" and "Delete" are only visible for logged in administrators of the page. 
 
 
 ### Painting details

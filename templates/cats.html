@@ -35,11 +35,15 @@
 											<h6 class="card-title">Background & Temperament:</h6>
 										</div>
 										<div>{{ cat.description }}</div>
+										{% if cat.adopt_status == 'Adopted' %}
+										<h4 class="male py-3">Already adopted</h4>
+										{% else %}
 										<div class="py-3">{{ cat.adopt_status }}</div>
 									</div>
 									<div class="card-footer text-center">
-										<a class="btn-card px-3 mx-auto btn-common"
+									<a class="btn-card px-3 mx-auto btn-common"
 											href="{% url 'adoption' %}">Adopt</a>
+										{% endif %}
 									</div>
 								</div>
 							</div>
