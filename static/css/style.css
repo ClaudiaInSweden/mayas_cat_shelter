@@ -206,6 +206,7 @@ legend.custom-border {
 }
 .select2-results__message {
   color: #e63946;
+  font-size: 0.8rem;
 }
 .select2-container .select2-search--inline .select2-search__field::placeholder {
   vertical-align: middle;
@@ -435,7 +436,23 @@ input[type="reset"] {
   animation-name: slideIn;
 }
 }
-
+@media screen and (min-width: 768px) {
+  body, h4, h6, th, td {
+    font-size: 1.2rem !important;
+  }
+  .footer { 
+    font-size: 1.2rem;
+  }
+  .footer i {
+    font-size: 1.2rem;
+  }
+  .form-control {
+    font-size: 1.2rem !important;
+  }
+  .select2-search__field::placeholder {
+    font-size: 1rem;
+  }
+}
 
 @media (min-width: 1200px) {
   .container {
